@@ -1,0 +1,15 @@
+# Contains personal customisations of Rubocop default rules
+AllCops:
+  Exclude:
+    # NOTE: Although this exclusion is in the default Rubocop config, it seems
+    # that CI still goes looking in the vendor directory and attempts to
+    # scan all files in all gems, so make the exclusion explicit here.
+    - "vendor/**/*"
+  TargetRubyVersion: 2.3
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  ConsistentQuotesInMultiline: true

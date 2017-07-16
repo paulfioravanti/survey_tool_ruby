@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "kramdown", "~> 1.8"
   spec.add_development_dependency "license_finder", "~> 3.0"
   spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency "minitest-reporters", "~> 1.1"
   spec.add_development_dependency "pry-byebug", "~> 3.1"
   spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency "rubygems-tasks", "~> 0.2"

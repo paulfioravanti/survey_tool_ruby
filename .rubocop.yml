@@ -7,6 +7,11 @@ AllCops:
     - "vendor/**/*"
   TargetRubyVersion: 2.3
 
+Metrics/BlockLength:
+  ExcludedMethods:
+    # NOTE: Re-enable this when Code Climate Rubocop version updates
+    - "new"
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 

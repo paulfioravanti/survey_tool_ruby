@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-$:.unshift File.join(__FILE__, '..', '..', 'lib')
+$LOAD_PATH.unshift File.join(__FILE__, "..", "..", "lib")
 
-require 'application'
+require "application"
 
 Application.new.cli

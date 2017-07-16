@@ -7,6 +7,25 @@ AllCops:
     - "vendor/**/*"
   TargetRubyVersion: 2.3
 
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+
 Metrics/BlockLength:
   ExcludedMethods:
     # NOTE: Re-enable this when Code Climate Rubocop version updates
@@ -15,6 +34,30 @@ Metrics/BlockLength:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/ImplicitRuntimeError:
+  Enabled: true
+
+Style/InlineComment:
+  Enabled: true
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+Style/OptionHash:
+  Enabled: true
+
+Style/Send:
+  Enabled: true
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
   ConsistentQuotesInMultiline: true
+
+Style/StringMethods:
+  Enabled: true
+
+Style/SymbolArray:
+  Enabled: true

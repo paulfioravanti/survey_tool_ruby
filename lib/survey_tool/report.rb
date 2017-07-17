@@ -28,14 +28,14 @@ module SurveyTool
               colspan: 2
             },
             {
-              value: "#{survey.total_participant_count}/"\
-                     "#{survey.responses_size} responses submitted.",
+              value: "#{survey.participant_count}/"\
+                     "#{survey.response_count} responses submitted.",
               alignment: :right,
               colspan: 2
             }
           ]
         )
-        if survey.total_participant_count > 0
+        if survey.participant_count > 0
           t.add_separator
           t.add_row(
             [
@@ -91,7 +91,8 @@ module SurveyTool
     end
     private_class_method :formatted_number
 
-    # NOTE: Pretty much ripped from ActionView::Helpers::TextHelper#word_wrap
+    # NOTE: Pretty much ripped wholesale from
+    # ActionView::Helpers::TextHelper#word_wrap
     def word_wrap(text, max_width)
       text.split("\n").map! do |line|
         if line.length > max_width

@@ -1,7 +1,6 @@
 module SurveyTool
   class RatingQuestion
-    attr_reader :theme, :text
-    attr_accessor :scores
+    attr_reader :theme, :text, :scores
 
     def initialize(theme:, text:)
       @theme = theme

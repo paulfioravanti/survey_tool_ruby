@@ -1,17 +1,19 @@
 require "bigdecimal"
 
 module SurveyTool
-  RatingQuestion =
-    Struct.new(:theme, :text, :scores) do
-      def initialize(*args, &block)
-        super(*args, &block)
-        self.scores = []
-        freeze
-      end
+  class RatingQuestion
+    attr_reader :theme, :text, :scores
 
-      def average_score
-        return nil if scores.empty?
+    def initialize(theme, text)
+      @theme = theme
+      @text = text
+      @scores = []
+    end
+
+    def average_score
+      if scores.any?
         BigDecimal.new(scores.sum) / BigDecimal.new(scores.size)
       end
     end
+  end
 end

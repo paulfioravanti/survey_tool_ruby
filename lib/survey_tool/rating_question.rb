@@ -1,11 +1,11 @@
-module SurveyTool
-  class RatingQuestion
-    attr_reader :theme, :text, :scores
+require "bigdecimal"
 
-    def initialize(theme:, text:)
-      @theme = theme
-      @text = text
-      @scores = []
+module SurveyTool
+  RatingQuestion = Struct.new(:theme, :text, :scores) do
+    def initialize(*args, &block)
+      super(*args, &block)
+      self.scores = []
+      freeze
     end
 
     def average_score

@@ -1,4 +1,5 @@
 require "optparse"
+require_relative "version"
 
 module SurveyTool
   module ArgumentParser
@@ -82,7 +83,7 @@ module SurveyTool
     private_class_method :check_missing_options
 
     # Returns either the responses filepath given from the command line, or
-    # determines a default filepath based on the following formula:
+    # determine a default filepath based on the following formula:
     # example-data/survey-1.csv
     # becomes
     # example-data/survey-1-responses.csv

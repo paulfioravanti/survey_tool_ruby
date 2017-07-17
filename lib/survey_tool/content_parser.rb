@@ -17,7 +17,7 @@ module SurveyTool
 
     def generate_questions(csv_filepath)
       CSV.read(csv_filepath, headers: true).map do |question|
-        RatingQuestion.new(theme: question["theme"], text: question["text"])
+        RatingQuestion.new(question["theme"], question["text"])
       end
     end
 

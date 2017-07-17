@@ -1,13 +1,10 @@
 require "bigdecimal"
 
 module SurveyTool
-  class Survey
-    attr_reader :questions, :participant_count, :response_count
-
-    def initialize(questions:, participant_count:, response_count:)
-      @questions = questions
-      @participant_count = participant_count
-      @response_count = response_count
+  Survey = Struct.new(:questions, :participant_count, :response_count) do
+    def initialize(**kwargs)
+      super(*members.map { |key| kwargs.fetch(key) })
+      freeze
     end
 
     def participation_percentage

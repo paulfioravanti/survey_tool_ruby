@@ -1,7 +1,4 @@
 #!/usr/bin/env ruby
 
-$LOAD_PATH.unshift File.join(__FILE__, "..", "..", "lib")
-
-require "application"
-
-Application.new.cli
+require_relative File.expand_path("../lib/survey_tool", __dir__)
+SurveyTool.start

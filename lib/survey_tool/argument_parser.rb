@@ -16,6 +16,8 @@ module SurveyTool
       [options[:questions_filepath], responses_filepath(options)]
     end
 
+    # NOTE: OptionParser API forcing the long method, so ignore Rubocop
+    # rubocop:disable Metrics/MethodLength
     def option_parser(options)
       OptionParser.new do |parser|
         parser.banner = "Usage: ./bin/survey-tool [options]"
@@ -29,6 +31,7 @@ module SurveyTool
         version_option(parser)
       end
     end
+    # rubocop:enable Metrics/MethodLength
     private_class_method :option_parser
 
     def questions_filepath_option(parser, options)
@@ -73,7 +76,7 @@ module SurveyTool
     def check_missing_options(optparse, options)
       missing = REQUIRED_OPTIONS.select { |option| options[option].nil? }
       if missing.any?
-        raise OptionParser::MissingArgument.new(missing.join(', '))
+        raise OptionParser::MissingArgument, missing.join(", ")
       end
     rescue OptionParser::InvalidOption, OptionParser::MissingArgument => error
       puts error.to_s
@@ -90,9 +93,9 @@ module SurveyTool
     def responses_filepath(options)
       options[:responses_filepath] ||
         options[:questions_filepath].
-        split(/(?=[.].+\z)/).
-        insert(1, "-responses").
-        join
+          split(/(?=[.].+\z)/).
+          insert(1, "-responses").
+          join
     end
     private_class_method :responses_filepath
   end

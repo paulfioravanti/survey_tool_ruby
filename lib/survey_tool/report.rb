@@ -10,30 +10,15 @@ module SurveyTool
     module_function
 
     def output(survey)
-      table = Terminal::Table.new do |t|
-        t.title = "** SURVEY REPORT **"
-        ParticipationPercentage.add_row(
-          table: t,
-          percentage: survey.participation_percentage,
-        )
-        t.add_separator
-        ParticipantCount.add_row(
-          table: t,
-          participant_count: survey.participant_count,
-          response_count: survey.response_count
-        )
-        if survey.participant_count > 0
-          t.add_separator
-          RatingQuestionsTitle.add_row(table: t)
-          t.add_separator
-          RatingQuestionsHeaders.add_row(table: t)
-          survey.questions.each do |question|
-            t.add_separator
-            RatingQuestionContent.add_row(table: t, question: question)
+      data =
+        Terminal::Table.new do |table|
+          table.title = "** SURVEY REPORT **"
+          participation_data(table, survey)
+          if survey.participant_count.positive?
+            rating_questions_content(table, survey)
           end
         end
-      end
-      puts table
+      puts data
     end
 
     def formatted_number(decimal)
@@ -43,5 +28,30 @@ module SurveyTool
         "N/A"
       end
     end
+
+    def participation_data(table, survey)
+      ParticipationPercentage.add_row(
+        table: table,
+        percentage: survey.participation_percentage
+      )
+      table.add_separator
+      ParticipantCount.add_row(
+        table: table,
+        participant_count: survey.participant_count,
+        response_count: survey.response_count
+      )
+    end
+
+    def rating_questions_content(table, survey)
+      table.add_separator
+      RatingQuestionsTitle.add_row(table: table)
+      table.add_separator
+      RatingQuestionsHeaders.add_row(table: table)
+      survey.questions.each do |question|
+        table.add_separator
+        RatingQuestionContent.add_row(table: table, question: question)
+      end
+    end
+    private_class_method :rating_questions_content
   end
 end

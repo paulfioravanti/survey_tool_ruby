@@ -28,18 +28,18 @@ module SurveyTool
         response_count += 1
         if timestamped?(response)
           participant_count += 1
-          questions.zip(response[ANSWERS_RANGE]).each do |question, answer|
-            if valid_answer?(answer)
-              question.scores << answer.to_i
-            end
-          end
+          collate_scores(questions, response)
         end
       end
-      Survey.new(
-        questions: questions,
-        participant_count: participant_count,
-        response_count: response_count
-      )
+      Survey.new(questions, participant_count, response_count)
+    end
+
+    def collate_scores(questions, response)
+      questions.zip(response[ANSWERS_RANGE]).each do |question, answer|
+        if valid_answer?(answer)
+          question.scores << answer.to_i
+        end
+      end
     end
 
     def timestamped?(response)

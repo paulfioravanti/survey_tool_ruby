@@ -6,10 +6,7 @@ module SurveyTool
       def add_row(table:, percentage:)
         table.add_row(
           [
-            {
-              value: "Participation Percentage",
-              colspan: 2
-            },
+            { value: "Participation Percentage", colspan: 2 },
             {
               value: formatted_percentage(percentage),
               alignment: :right,

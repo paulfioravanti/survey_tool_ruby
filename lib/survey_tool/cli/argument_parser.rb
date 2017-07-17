@@ -1,5 +1,5 @@
 require "optparse"
-require_relative "../colours"
+require_relative "output"
 require_relative "../version"
 
 module SurveyTool
@@ -17,8 +17,8 @@ module SurveyTool
         check_missing_options(optparse, options)
         [options[:questions_filepath], responses_filepath(options)]
       rescue OptionParser::InvalidOption, OptionParser::MissingArgument => error
-        puts Colours.red(error.to_s)
-        puts optparse
+        Output.error(error.to_s)
+        Output.plain(optparse)
         exit(1)
       end
 
@@ -65,7 +65,7 @@ module SurveyTool
 
       def help_option(parser)
         parser.on_tail("-h", "--help", "Show this message") do
-          puts parser
+          Output.plain(parser)
           exit(0)
         end
       end
@@ -73,7 +73,7 @@ module SurveyTool
 
       def version_option(parser)
         parser.on_tail("-v", "--version", "Show version") do
-          puts SurveyTool::VERSION
+          Output.plain(SurveyTool::VERSION)
           exit(0)
         end
       end

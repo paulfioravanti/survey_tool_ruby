@@ -19,7 +19,7 @@ module SurveyTool
               rating_questions_content(table, survey)
             end
           end
-        puts data
+        Output.plain(data)
       end
 
       def formatted_number(decimal)

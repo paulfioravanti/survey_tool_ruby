@@ -1,4 +1,5 @@
 require "optparse"
+require_relative "colours"
 require_relative "version"
 
 module SurveyTool
@@ -14,6 +15,10 @@ module SurveyTool
       optparse.parse!(ARGV)
       check_missing_options(optparse, options)
       [options[:questions_filepath], responses_filepath(options)]
+    rescue OptionParser::InvalidOption, OptionParser::MissingArgument => error
+      puts Colours.red(error.to_s)
+      puts optparse
+      exit(1)
     end
 
     # NOTE: OptionParser API forcing the long method, so ignore Rubocop
@@ -78,10 +83,6 @@ module SurveyTool
       if missing.any?
         raise OptionParser::MissingArgument, missing.join(", ")
       end
-    rescue OptionParser::InvalidOption, OptionParser::MissingArgument => error
-      puts error.to_s
-      puts optparse
-      exit(1)
     end
     private_class_method :check_missing_options
 

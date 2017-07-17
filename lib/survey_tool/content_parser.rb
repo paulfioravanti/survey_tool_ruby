@@ -41,6 +41,7 @@ module SurveyTool
         end
       end
     end
+    private_class_method :collate_scores
 
     def timestamped?(response)
       Date.parse(response[TIMESTAMP_INDEX])

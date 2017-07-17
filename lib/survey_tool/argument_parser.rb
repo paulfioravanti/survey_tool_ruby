@@ -1,3 +1,5 @@
+require "optparse"
+
 module SurveyTool
   module ArgumentParser
     REQUIRED_OPTIONS = [:questions_filepath].freeze
@@ -86,7 +88,10 @@ module SurveyTool
     # example-data/survey-1-responses.csv
     def responses_filepath(options)
       options[:responses_filepath] ||
-        options[:questions_filepath].split(/(?=[.].+\z)/).insert(1, "-responses").join
+        options[:questions_filepath].
+        split(/(?=[.].+\z)/).
+        insert(1, "-responses").
+        join
     end
     private_class_method :responses_filepath
   end

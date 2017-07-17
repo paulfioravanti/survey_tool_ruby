@@ -4,7 +4,7 @@ module SurveyTool
   module Report
     module_function
 
-    def output(questions, responses_size, total_participant_count, participation_percentage)
+    def output(survey)
       table = Terminal::Table.new do |t|
         t.title = "** SURVEY REPORT **"
         t.add_row(
@@ -14,7 +14,7 @@ module SurveyTool
               colspan: 2
             },
             {
-              value: "#{formatted_score(participation_percentage * 100)}%",
+              value: formatted_percentage(survey.participation_percentage),
               alignment: :right,
               colspan: 2
             }
@@ -28,14 +28,14 @@ module SurveyTool
               colspan: 2
             },
             {
-              value: "#{total_participant_count}/#{responses_size} "\
-                     "responses submitted.",
+              value: "#{survey.total_participant_count}/"\
+                     "#{survey.responses_size} responses submitted.",
               alignment: :right,
               colspan: 2
             }
           ]
         )
-        if total_participant_count > 0
+        if survey.total_participant_count > 0
           t.add_separator
           t.add_row(
             [
@@ -55,14 +55,14 @@ module SurveyTool
               { value: "No. Scores Submitted", alignment: :right }
             ]
           )
-          questions.each do |question|
+          survey.questions.each do |question|
             t.add_separator
             t.add_row(
               [
                 question.theme,
                 word_wrap(question.text, 50),
                 {
-                  value: formatted_score(question.average_score),
+                  value: formatted_number(question.average_score),
                   alignment: :right
                 },
                 {
@@ -77,14 +77,19 @@ module SurveyTool
       puts table
     end
 
-    def formatted_score(score)
-      if score
-        score.truncate(2).to_s("F")
+    def formatted_percentage(percentage)
+      "#{formatted_number(percentage * 100)}%"
+    end
+    private_class_method :formatted_percentage
+
+    def formatted_number(decimal)
+      if decimal
+        decimal.truncate(2).to_s("F")
       else
         "N/A"
       end
     end
-    private_class_method :formatted_score
+    private_class_method :formatted_number
 
     # NOTE: Pretty much ripped from ActionView::Helpers::TextHelper#word_wrap
     def word_wrap(text, max_width)

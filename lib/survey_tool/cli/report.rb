@@ -43,10 +43,19 @@ module SurveyTool
         questions =
           questions_of_type(survey.questions, SurveyTool.const_get(type))
         return if questions.empty?
+        survey_headers(table, type)
+        survey_content(questions, table, type)
+      end
+
+      def survey_headers(table, type)
         table.add_separator
         Report.const_get("#{type}Title").add_row(table: table)
         table.add_separator
         Report.const_get("#{type}Headers").add_row(table: table)
+      end
+      private_class_method :survey_headers
+
+      def survey_content(questions, table, type)
         questions.each do |question|
           table.add_separator
           Report.const_get("#{type}Content").add_row(
@@ -55,6 +64,7 @@ module SurveyTool
           )
         end
       end
+      private_class_method :survey_content
 
       def questions_of_type(questions, type)
         questions.select { |question| question.is_a?(type) }

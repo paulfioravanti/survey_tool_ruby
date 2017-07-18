@@ -1,3 +1,5 @@
+require_relative "utilities"
+
 module SurveyTool
   module CLI
     module Report
@@ -18,7 +20,7 @@ module SurveyTool
         end
 
         def formatted_percentage(percentage)
-          "#{Report.formatted_number(percentage * 100)}%"
+          "#{Utilities.formatted_number(percentage * 100)}%"
         end
         private_class_method :formatted_percentage
       end

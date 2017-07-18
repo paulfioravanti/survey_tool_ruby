@@ -19,33 +19,11 @@ module SurveyTool
             table.title = "** SURVEY REPORT **"
             participation_data(table, survey)
             if survey.participant_count.positive?
-              survey_content(table, survey)
+              survey_content_for(table, survey, "RatingQuestion")
+              survey_content_for(table, survey, "SingleSelect")
             end
           end
         Output.plain(data)
-      end
-
-      def formatted_number(decimal)
-        if decimal
-          decimal.truncate(2).to_s("F")
-        else
-          "N/A"
-        end
-      end
-
-      # NOTE: Pretty much ripped wholesale from
-      # ActionView::Helpers::TextHelper#word_wrap.
-      # Due to that, I'll have Rubocop ignore it.
-      def word_wrap(text, max_width)
-        # rubocop:disable Style/MethodCalledOnDoEndBlock
-        text.split("\n").map! do |line|
-          if line.length > max_width
-            line.gsub(/(.{1,#{max_width}})(\s+|$)/, "\\1\n").strip
-          else
-            line
-          end
-        end * "\n"
-        # rubocop:enable Style/MethodCalledOnDoEndBlock
       end
 
       def participation_data(table, survey)
@@ -61,29 +39,22 @@ module SurveyTool
         )
       end
 
-      def survey_content(table, survey)
+      def survey_content_for(table, survey, type)
+        questions =
+          questions_of_type(survey.questions, SurveyTool.const_get(type))
+        return if questions.empty?
         table.add_separator
-        if (questions = questions_of_type(survey.questions, RatingQuestion)).any?
-          RatingQuestionTitle.add_row(table: table)
+        Report.const_get("#{type}Title").add_row(table: table)
+        table.add_separator
+        Report.const_get("#{type}Headers").add_row(table: table)
+        questions.each do |question|
           table.add_separator
-          RatingQuestionHeaders.add_row(table: table)
-          questions.each do |question|
-            table.add_separator
-            RatingQuestionContent.add_row(table: table, question: question)
-          end
-          table.add_separator
-        end
-        if (questions = questions_of_type(survey.questions, SingleSelect)).any?
-          SingleSelectTitle.add_row(table: table)
-          table.add_separator
-          SingleSelectHeaders.add_row(table: table)
-          questions.each do |question|
-            table.add_separator
-            SingleSelectContent.add_row(table: table, question: question)
-          end
+          Report.const_get("#{type}Content").add_row(
+            table: table,
+            question: question
+          )
         end
       end
-      private_class_method :survey_content
 
       def questions_of_type(questions, type)
         questions.select { |question| question.is_a?(type) }

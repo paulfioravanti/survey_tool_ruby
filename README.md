@@ -1,4 +1,4 @@
-# Culture Amp's Developer Coding Test
+# CSV Survey Developer Coding Test
 
 Your task is to build a CLI application to parse and display survey data from CSV files, and display the results.
 
@@ -47,9 +47,5 @@ Despite this being a small command line app, please approach this as you would a
 ## Submitting your solution
 
 Assuming you use Git, when you’re ready to submit your solution, please use `git bundle` to package up a copy of your repository (with complete commit history) as a single file and send it to us as an email attachment. 
-
-```
-git bundle create culture-amp-coding-test.bundle master
-```
 
 We're looking forward to your innovative solutions!

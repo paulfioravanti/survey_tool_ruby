@@ -1,10 +1,17 @@
+require "forwardable"
 require_relative "survey_tool/application"
 
-# The survey too omg
+# Top level module for survey tool
+#
+# @author Paul Fioravanti
 module SurveyTool
-  module_function
+  extend Forwardable
 
-  def start
-    Application.start
-  end
+  # Delegates directly Application.start
+  def_delegator Application, :start
+
+  # Entry point for running the survey tool.
+  # @!method start
+  # @return (see Application.start)
+  module_function :start
 end

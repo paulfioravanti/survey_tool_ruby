@@ -4,11 +4,20 @@ require_relative "cli/output"
 require_relative "cli/report"
 require_relative "content_parser"
 
-# The survey too omg
 module SurveyTool
+  # Entry point for starting the CLI application.
+  #
+  # @author Paul Fioravanti
   module Application
     module_function
 
+    # Starts the application and is the "controller" rallying point
+    # for fetching all the information needed to output a survey table.
+    #
+    # @raise [Errno::ENOENT]
+    #   if any files specified do not exist.
+    # @raise [RuntimeError]
+    #   if there are any issues reading or parsing the specified files.
     def start
       questions_filepath, responses_filepath =
         CLI::ArgumentParser.fetch_filepaths
@@ -16,9 +25,6 @@ module SurveyTool
       survey = ContentParser.generate_survey(responses_filepath, questions)
       CLI::Report.output(survey)
     rescue Errno::ENOENT, RuntimeError => error
-      # This will catch issues related to:
-      # - Specified file not existing
-      # - Issues reading/parsing file
       CLI::Output.error(
         "Could not generate report: #{error.message} (#{error.class})"
       )

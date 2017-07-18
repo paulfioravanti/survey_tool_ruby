@@ -8,10 +8,10 @@ group :red_green_refactor, halt_on_fail: true do
     watch(%r{^test/test_helper\.rb$}) { "test" }
   end
 
-  # guard :reek, all_on_start: false do
-  #   watch(/.+\.rb$/)
-  #   watch(".reek")
-  # end
+  guard :reek, all_on_start: false do
+    watch(/.+\.rb$/)
+    watch(".reek")
+  end
 
   guard :rubocop, all_on_start: false, cli: ["--display-cop-names"] do
     watch(/.+\.rb$/)

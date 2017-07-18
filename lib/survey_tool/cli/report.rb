@@ -10,9 +10,17 @@ require_relative "report/single_select_title"
 
 module SurveyTool
   module CLI
+    # Module encapsulating the CLI "view" and outputting
+    # information derived in the survey tool in table format.
+    #
+    # @author Paul Fioravanti
     module Report
       module_function
 
+      # Output the survey data to `$stdout`.
+      #
+      # @param survey [Survey]
+      #   The survey to output.
       def output(survey)
         data =
           Terminal::Table.new do |table|
@@ -27,17 +35,15 @@ module SurveyTool
       end
 
       def participation_data(table, survey)
-        ParticipationPercentage.add_row(
-          table: table,
-          percentage: survey.participation_percentage
-        )
+        ParticipationPercentage.add_row(table, survey.participation_percentage)
         table.add_separator
         ParticipantCount.add_row(
-          table: table,
-          participant_count: survey.participant_count,
-          response_count: survey.response_count
+          table,
+          survey.participant_count,
+          survey.response_count
         )
       end
+      private_class_method :participation_data
 
       def survey_content_for(table, survey, type)
         questions =
@@ -46,22 +52,20 @@ module SurveyTool
         survey_headers(table, type)
         survey_content(questions, table, type)
       end
+      private_class_method :survey_content_for
 
       def survey_headers(table, type)
         table.add_separator
-        Report.const_get("#{type}Title").add_row(table: table)
+        Report.const_get("#{type}Title").add_row(table)
         table.add_separator
-        Report.const_get("#{type}Headers").add_row(table: table)
+        Report.const_get("#{type}Headers").add_row(table)
       end
       private_class_method :survey_headers
 
       def survey_content(questions, table, type)
         questions.each do |question|
           table.add_separator
-          Report.const_get("#{type}Content").add_row(
-            table: table,
-            question: question
-          )
+          Report.const_get("#{type}Content").add_row(table, question)
         end
       end
       private_class_method :survey_content

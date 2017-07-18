@@ -1,15 +1,28 @@
 module SurveyTool
+  # Module encapsulating all the functionality of the command line
+  # interface to run the survey tool
+  #
+  # @author Paul Fioravanti
   module CLI
-    # Module representing CLI output.
+    # Module wrapping all functionality that outputs anything to
+    # the command line.
     #
     # @author Paul Fioravanti
     module Output
       module_function
 
+      # Outputs the error message to `$stdout` in red, with a newline ending.
+      #
+      # @param message
+      #   The error message to ouput.
       def error(message)
         puts red(message)
       end
 
+      # Outputs the message to `$stdout`, with a newline ending.
+      #
+      # @param message
+      #   The message to ouput.
       def plain(message)
         puts message
       end

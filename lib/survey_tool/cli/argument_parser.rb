@@ -4,12 +4,26 @@ require_relative "../version"
 
 module SurveyTool
   module CLI
+    # CLI argument validity parser.
+    #
+    # @author Paul Fioravanti
     module ArgumentParser
+      # Set of options that must be provided when running application.
       REQUIRED_OPTIONS = [:questions_filepath].freeze
       private_constant :REQUIRED_OPTIONS
 
       module_function
 
+      # Parses the CLI arguments in order to fetch or determine the
+      # filepaths of the survey question and response files.
+      #
+      # @raise [OptionParser::InvalidOptionError]
+      #   if a CLI option is invalid
+      # @raise [OptionParser::MissingArgumentError]
+      #   if a CLI option is missing (eg -q flag without filepath)
+      # @return [Array]
+      #   if all arguments can be parsed correctly, an array containing
+      #   the questions filepath and responses filepath is returned.
       def fetch_filepaths
         options = {}
         optparse = option_parser(options)

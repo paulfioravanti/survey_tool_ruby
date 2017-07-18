@@ -47,7 +47,7 @@ module SurveyTool
     def add_answer(string)
       # NOTE: I think the non-guard clause reads better here.
       # rubocop:disable Style/GuardClause
-      if valid_score?(string)
+      if string.to_i.between?(MIN_SCORE, MAX_SCORE)
         scores << string.to_i
       end
       # rubocop:enable Style/GuardClause
@@ -64,12 +64,6 @@ module SurveyTool
         BigDecimal.new(scores.sum) / BigDecimal.new(scores.size)
       end
       # rubocop:enable Style/GuardClause
-    end
-
-    private
-
-    def valid_score?(score)
-      score.to_i.between?(MIN_SCORE, MAX_SCORE)
     end
   end
 end

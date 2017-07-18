@@ -1,0 +1,16 @@
+DuplicateMethodCall:
+  exclude:
+    # NOTE: This is due to the OptionParser syntax
+    - SurveyTool::CLI::ArgumentParser#option_parser
+FeatureEnvy:
+  # NOTE: Many of the exclusions here are due to reek not being able to see
+  # `module_function` methods aren't instance methods that need to refer to a
+  # `self`.
+  exclude:
+    - SurveyTool::Application#start
+    - SurveyTool::RatingQuestion#add_answer
+TooManyStatements:
+  # NOTE: After attempted refactorings, I've decided that the following
+  # methods do not have too many statements.
+  exclude:
+    - SurveyTool::Application#start

@@ -14,7 +14,7 @@ module SurveyTool
         options = {}
         optparse = option_parser(options)
         optparse.parse!(ARGV)
-        check_missing_options(optparse, options)
+        check_missing_options(options)
         [options[:questions_filepath], responses_filepath(options)]
       rescue OptionParser::InvalidOption, OptionParser::MissingArgument => error
         Output.error(error.to_s)
@@ -79,11 +79,17 @@ module SurveyTool
       end
       private_class_method :version_option
 
-      def check_missing_options(optparse, options)
-        missing = REQUIRED_OPTIONS.select { |option| options[option].nil? }
+      def check_missing_options(options)
+        missing =
+          REQUIRED_OPTIONS.select do |required_option|
+            options[required_option].nil?
+          end
+        # NOTE: I think the non-guard clause reads better here.
+        # rubocop:disable Style/GuardClause
         if missing.any?
           raise OptionParser::MissingArgument, missing.join(", ")
         end
+        # rubocop:enable Style/GuardClause
       end
       private_class_method :check_missing_options
 

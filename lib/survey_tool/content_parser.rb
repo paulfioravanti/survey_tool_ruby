@@ -1,15 +1,13 @@
 require "csv"
+require_relative "exceptions"
 require_relative "rating_question"
+require_relative "single_select"
 require_relative "survey"
 
 module SurveyTool
   module ContentParser
     ANSWERS_RANGE = 3..-1
     private_constant :ANSWERS_RANGE
-    MAX_SCORE = 5
-    private_constant :MAX_SCORE
-    MIN_SCORE = 1
-    private_constant :MIN_SCORE
     TIMESTAMP_INDEX = 2
     private_constant :TIMESTAMP_INDEX
 
@@ -17,7 +15,14 @@ module SurveyTool
 
     def generate_questions(csv_filepath)
       CSV.read(csv_filepath, headers: true).map do |question|
-        RatingQuestion.new(question["theme"], question["text"])
+        case question["type"]
+        when "ratingquestion"
+          RatingQuestion.new(question["theme"], question["text"])
+        when "singleselect"
+          SingleSelect.new(question["theme"], question["text"])
+        else
+          raise UnknownQuestionTypeError.new(csv_filepath, question["type"])
+        end
       end
     end
 
@@ -28,20 +33,18 @@ module SurveyTool
         response_count += 1
         if timestamped?(response)
           participant_count += 1
-          collate_scores(questions, response)
+          collate_answers(questions, response)
         end
       end
       Survey.new(questions, participant_count, response_count)
     end
 
-    def collate_scores(questions, response)
+    def collate_answers(questions, response)
       questions.zip(response[ANSWERS_RANGE]).each do |question, answer|
-        if valid_answer?(answer)
-          question.scores << answer.to_i
-        end
+        question.add_answer(answer)
       end
     end
-    private_class_method :collate_scores
+    private_class_method :collate_answers
 
     def timestamped?(response)
       Date.parse(response[TIMESTAMP_INDEX])
@@ -49,10 +52,5 @@ module SurveyTool
       false
     end
     private_class_method :timestamped?
-
-    def valid_answer?(answer)
-      answer.to_i.between?(MIN_SCORE, MAX_SCORE)
-    end
-    private_class_method :valid_answer?
   end
 end

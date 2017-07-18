@@ -3,7 +3,7 @@ require_relative "utilities"
 module SurveyTool
   module CLI
     module Report
-      module RatingQuestionContent
+      module SingleSelectContent
         CHARACTER_LIMIT = 50
         private_constant :CHARACTER_LIMIT
 
@@ -16,14 +16,23 @@ module SurveyTool
               question.theme,
               Utilities.word_wrap(question.text, CHARACTER_LIMIT),
               {
-                value: Utilities.formatted_number(question.average_score),
-                alignment: :right
-              },
-              { value: question.scores.size, alignment: :right }
+                value: formatted_answers(question.answers),
+                alignment: :right,
+                colspan: 2
+              }
             ]
           )
         end
         # rubocop:enable Metrics/MethodLength
+
+        def formatted_answers(answers)
+          answers =
+            answers.reduce([]) do |array, (key, value)|
+              array << "#{key} (#{value})"
+            end
+          answers.sort.join(", ")
+        end
+        private_class_method :formatted_answers
       end
     end
   end

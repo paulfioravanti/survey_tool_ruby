@@ -1,7 +1,7 @@
 module SurveyTool
   module CLI
     module Report
-      module RatingQuestionsTitle
+      module RatingQuestionTitle
         module_function
 
         def add_row(table:)

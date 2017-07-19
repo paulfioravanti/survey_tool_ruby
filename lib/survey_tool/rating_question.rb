@@ -45,10 +45,11 @@ module SurveyTool
     # @param string [String]
     #   The score to add to the question's scores.
     def add_answer(string)
+      score = string.to_i
       # NOTE: I think the non-guard clause reads better here.
       # rubocop:disable Style/GuardClause
-      if string.to_i.between?(MIN_SCORE, MAX_SCORE)
-        scores << string.to_i
+      if score.to_i.between?(MIN_SCORE, MAX_SCORE)
+        scores << score
       end
       # rubocop:enable Style/GuardClause
     end

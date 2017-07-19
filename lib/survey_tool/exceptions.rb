@@ -4,9 +4,9 @@ module SurveyTool
   #
   # @author Paul Fioravanti
   class UnknownQuestionTypeError < StandardError
-    # @!attribute message
+    # @!attribute message [r]
     # @return [String] The error message.
-    attr_accessor :message
+    attr_reader :message
 
     # Initialises a new instance of the error.
     #

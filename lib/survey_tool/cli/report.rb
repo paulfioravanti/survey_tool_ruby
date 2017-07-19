@@ -23,8 +23,7 @@ module SurveyTool
       #   The survey to output.
       def output(survey)
         data =
-          Terminal::Table.new do |table|
-            table.title = "** SURVEY REPORT **"
+          Terminal::Table.new(title: "** SURVEY REPORT **") do |table|
             participation_data(table, survey)
             if survey.participant_count.positive?
               survey_content_for(table, survey, "RatingQuestion")

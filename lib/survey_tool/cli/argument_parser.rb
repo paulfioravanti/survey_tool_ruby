@@ -95,8 +95,8 @@ module SurveyTool
 
       def check_missing_options(options)
         missing =
-          REQUIRED_OPTIONS.select do |required_option|
-            options[required_option].nil?
+          REQUIRED_OPTIONS.reject do |required_option|
+            options.key?(required_option)
           end
         # NOTE: I think the non-guard clause reads better here.
         # rubocop:disable Style/GuardClause

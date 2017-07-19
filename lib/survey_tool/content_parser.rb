@@ -29,18 +29,23 @@ module SurveyTool
     # @raise [UnknownQuestionTypeError]
     #   if the CSV file contains a type of question that is unknown to
     #   the application.
+    # NOTE: I think making this method shorter will affect its readability
+    # given the nature of the `case` statement.
+    # rubocop:disable Metrics/MethodLength
     def generate_questions(csv_filepath)
       CSV.read(csv_filepath, headers: true).map do |question|
-        case question["type"]
+        type, theme, text = question.values_at("type", "theme", "text")
+        case type
         when "ratingquestion"
-          RatingQuestion.new(question["theme"], question["text"])
+          RatingQuestion.new(theme, text)
         when "singleselect"
-          SingleSelect.new(question["theme"], question["text"])
+          SingleSelect.new(theme, text)
         else
-          raise UnknownQuestionTypeError.new(csv_filepath, question["type"])
+          raise UnknownQuestionTypeError.new(csv_filepath, type)
         end
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
     # Reads the responses CSV file line-by-line, inserts information
     # into question objects based on the information contained in
@@ -53,8 +58,7 @@ module SurveyTool
     # @return [Survey]
     #   The survey to output.
     def generate_survey(csv_filepath, questions)
-      participant_count = 0
-      response_count = 0
+      participant_count = response_count = 0
       CSV.foreach(csv_filepath) do |response|
         response_count += 1
         if timestamped?(response)

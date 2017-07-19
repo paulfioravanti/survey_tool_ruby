@@ -1,16 +1,36 @@
+DataClump:
+  exclude:
+    # In order to extract code into smaller methods, and use data in
+    # a functional way that doesn't assign it to the state of an object,
+    # modules dealing with an API like Terminal::Table need to pass around
+    # similar data to different methods, resulting in what reek sees as a
+    # data clump.  This is prevalent in the Report module as it uses data in
+    # a functional way, so exclude it from this check.
+    - SurveyTool::CLI::Report
 DuplicateMethodCall:
   exclude:
     # NOTE: This is due to the OptionParser syntax
     - SurveyTool::CLI::ArgumentParser#option_parser
+    # NOTE: This is due to the Terminal::Table syntax
+    - SurveyTool::CLI::Report#survey_headers
 FeatureEnvy:
   # NOTE: Many of the exclusions here are due to reek not being able to see
   # `module_function` methods aren't instance methods that need to refer to a
   # `self`.
   exclude:
     - SurveyTool::Application#start
+    - SurveyTool::CLI::ArgumentParser#check_missing_options
+    - SurveyTool::CLI::ArgumentParser#option_parser
+    - SurveyTool::CLI::Report::RatingQuestionContent#add_row
+    - SurveyTool::CLI::Report::SingleSelectContent#add_row
+    - SurveyTool::ContentParser#generate_questions
     - SurveyTool::RatingQuestion#add_answer
 TooManyStatements:
-  # NOTE: After attempted refactorings, I've decided that the following
-  # methods do not have too many statements.
+  # NOTE: After attempted refactorings, I've decided that it's either not
+  # really possible to make the following methods shorter, or making them
+  # shorter will impact readability.
   exclude:
     - SurveyTool::Application#start
+    - SurveyTool::CLI::ArgumentParser#fetch_filepaths
+    - SurveyTool::CLI::ArgumentParser#option_parser
+    - SurveyTool::ContentParser#generate_survey

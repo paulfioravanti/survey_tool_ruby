@@ -11,6 +11,10 @@ module SurveyTool
     #
     # @author Paul Fioravanti
     module Output
+      # Terminal colour code for red.
+      RED = 31
+      private_constant :RED
+
       module_function
 
       # Outputs the error message to `$stdout` in red, with a newline ending.
@@ -32,7 +36,7 @@ module SurveyTool
       end
 
       def red(text)
-        colourize(text, colour_code: 31)
+        colourize(text, colour_code: RED)
       end
       private_class_method :red
 

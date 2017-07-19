@@ -3,7 +3,6 @@
 group :red_green_refactor, halt_on_fail: true do
   guard :minitest,
         env: { "NO_COVERAGE" => "true" },
-        all_env: { "NO_COVERAGE" => "false" },
         all_on_start: false do
     watch(%r{\Atest/(.*)\/?test_(.*)\.rb\z})
     watch(%r{\Alib/(.*/)?([^/]+)\.rb\z}) { |m| "test/#{m[1]}test_#{m[2]}.rb" }

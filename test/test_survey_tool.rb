@@ -10,7 +10,7 @@ class TestSurveyTool < Minitest::Test
     @start_mock = Minitest::Mock.new.expect(:call, :start_retval, [])
   end
 
-  def test_tell_story
+  def test_start_application
     # NOTE: This tests that SurveyTool.start delegates off
     # to Application.start
     SurveyTool::Application.stub(:start, start_mock) do

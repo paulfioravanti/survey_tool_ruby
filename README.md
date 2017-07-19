@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/paulfioravanti/survey_tool.svg?branch=master)](https://travis-ci.org/paulfioravanti/survey_tool)
 [![Code Climate](https://codeclimate.com/github/paulfioravanti/survey_tool/badges/gpa.svg)](https://codeclimate.com/github/paulfioravanti/survey_tool)
+[![Coverage](https://codeclimate.com/github/paulfioravanti/survey_tool/badges/coverage.svg)](https://codeclimate.com/github/paulfioravanti/survey_tool)
 
 # CSV Survey Tool Developer Coding Test
 

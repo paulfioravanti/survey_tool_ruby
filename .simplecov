@@ -1,7 +1,11 @@
 # Only run coverage when running spec suite outside of Guard
-unless ENV["NO_COVERAGE"]
+# NOTE: This is an ENV variable so all the values are strings.
+unless ENV["NO_COVERAGE"] == "true"
   SimpleCov.start do
     add_filter "/test/"
-    SimpleCov.minimum_coverage 100
+    # NOTE: Switch out these statements dependent on whether
+    # very active development is occurring or not.
+    # SimpleCov.minimum_coverage 100
+    SimpleCov.refuse_coverage_drop
   end
 end

@@ -29,7 +29,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "bundler-audit", "~> 0.5"
   spec.add_development_dependency "codeclimate-test-reporter", "~> 1.0"
-  spec.add_development_dependency "guard-rake", "~> 1.0"
+  # NOTE: guard-minitest does not have Guard as a dependency,
+  # hence explicitly adding it in.
+  spec.add_development_dependency "guard", "~> 2.14"
+  spec.add_development_dependency "guard-minitest", "~> 2.4"
   spec.add_development_dependency "guard-reek", "~> 1.0"
   spec.add_development_dependency "guard-rubocop", "~> 1.2"
   spec.add_development_dependency "guard-yard", "~> 2.2"

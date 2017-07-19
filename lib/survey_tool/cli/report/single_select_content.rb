@@ -11,6 +11,9 @@ module SurveyTool
         # Specified character limit for wrapping content in a table cell.
         CHARACTER_LIMIT = 50
         private_constant :CHARACTER_LIMIT
+        # Column span length per answer
+        COLUMN_SPAN = 2
+        private_constant :COLUMN_SPAN
 
         module_function
 
@@ -35,7 +38,7 @@ module SurveyTool
           {
             value: formatted_answers(answers),
             alignment: :right,
-            colspan: 2
+            colspan: COLUMN_SPAN
           }
         end
         private_class_method :answers

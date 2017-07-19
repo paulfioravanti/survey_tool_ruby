@@ -8,6 +8,10 @@ module SurveyTool
       #
       # @author Paul Fioravanti
       module ParticipantCount
+        # Column span length
+        COLUMN_SPAN = 2
+        private_constant :COLUMN_SPAN
+
         module_function
 
         # Adds the participant count row to the table.
@@ -22,11 +26,11 @@ module SurveyTool
         def add_row(table, participant_count, response_count)
           table.add_row(
             [
-              { value: "Participant Count", colspan: 2 },
+              { value: "Participant Count", colspan: COLUMN_SPAN },
               {
                 value: "#{participant_count}/#{response_count} submitted.",
                 alignment: :right,
-                colspan: 2
+                colspan: COLUMN_SPAN
               }
             ]
           )

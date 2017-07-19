@@ -8,6 +8,12 @@ module SurveyTool
       #
       # @author Paul Fioravanti
       module Utilities
+        # Decimal places to truncate
+        NUM_DECIMAL_PLACES = 2
+        private_constant :NUM_DECIMAL_PLACES
+        FLOATING_POINT_NOTATION = "F"
+        private_constant :FLOATING_POINT_NOTATION
+
         module_function
 
         # Takes a BigDecimal data, truncates it to 2 decimal
@@ -18,7 +24,7 @@ module SurveyTool
         # @return [String]
         #   A printable string representation of the BigDecimal number.
         def formatted_number(decimal)
-          decimal.truncate(2).to_s("F")
+          decimal.truncate(NUM_DECIMAL_PLACES).to_s(FLOATING_POINT_NOTATION)
         end
 
         # @param text [String]

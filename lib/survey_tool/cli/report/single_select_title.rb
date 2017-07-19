@@ -8,6 +8,10 @@ module SurveyTool
       #
       # @author Paul Fioravanti
       module SingleSelectTitle
+        # Column span length
+        COLUMN_SPAN = 4
+        private_constant :COLUMN_SPAN
+
         module_function
 
         # Adds the title row for SingleSelect responses to the table.
@@ -20,7 +24,7 @@ module SurveyTool
             [
               {
                 value: "Single Select Question Values (submitted surveys only)",
-                colspan: 4,
+                colspan: COLUMN_SPAN,
                 alignment: :center
               }
             ]

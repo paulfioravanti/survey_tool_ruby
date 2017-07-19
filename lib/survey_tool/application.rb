@@ -1,8 +1,4 @@
 require "bigdecimal"
-require_relative "cli/argument_parser"
-require_relative "cli/output"
-require_relative "cli/report"
-require_relative "content_parser"
 
 module SurveyTool
   # Entry point for starting the CLI application.

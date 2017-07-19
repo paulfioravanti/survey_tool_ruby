@@ -1,6 +1,4 @@
 require "optparse"
-require_relative "output"
-require_relative "../version"
 
 module SurveyTool
   module CLI

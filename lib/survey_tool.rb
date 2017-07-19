@@ -1,5 +1,5 @@
 require "forwardable"
-require_relative "survey_tool/application"
+Dir["#{__dir__}/survey_tool/**/*.rb"].each { |file| require file }
 
 # Top level module for survey tool
 #

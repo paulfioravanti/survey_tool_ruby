@@ -1,5 +1,3 @@
-require_relative "utilities"
-
 module SurveyTool
   module CLI
     module Report

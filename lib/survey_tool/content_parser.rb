@@ -24,14 +24,28 @@ module SurveyTool
     #
     # @param csv_filepath [String]
     #   The questions CSV filepath.
+    # @raise [MissingHeadersError]
+    #   if the CSV file is missing headers.
     # @raise [UnknownQuestionTypeError]
     #   if the CSV file contains a type of question that is unknown to
     #   the application.
+    # @raise [Errno::ENOENT]
+    #   if the specified file does not exist.
+    # @raise [RuntimeError]
+    #   if there are any issues reading or parsing the specified file.
+    # @return [Array]
+    #   a collection of questions of potentially different types.
     # NOTE: I think making this method shorter will affect its readability
     # given the nature of the `case` statement.
     # rubocop:disable Metrics/MethodLength
     def generate_questions(csv_filepath)
-      CSV.read(File.expand_path(csv_filepath), headers: true).map do |question|
+      absolute_filepath = File.expand_path(csv_filepath)
+      csv = CSV.read(absolute_filepath, headers: true)
+      if csv.headers.empty?
+        raise MissingHeadersError, absolute_filepath
+      end
+
+      csv.map do |question|
         type, theme, text = question.values_at("type", "theme", "text")
         case type
         when "ratingquestion"
@@ -39,7 +53,7 @@ module SurveyTool
         when "singleselect"
           SingleSelect.new(theme, text)
         else
-          raise UnknownQuestionTypeError.new(csv_filepath, type)
+          raise UnknownQuestionTypeError, absolute_filepath, type
         end
       end
     end
@@ -53,6 +67,10 @@ module SurveyTool
     #   The responses CSV filepath.
     # @param questions [Array]
     #   The array of question objects populated from the questions CSV file.
+    # @raise [Errno::ENOENT]
+    #   if the file specified does not exist.
+    # @raise [RuntimeError]
+    #   if there are any issues reading or parsing the specified file.
     # @return [Survey]
     #   The survey to output.
     def generate_survey(csv_filepath, questions)

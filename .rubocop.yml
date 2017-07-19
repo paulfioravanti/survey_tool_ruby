@@ -31,9 +31,6 @@ Metrics/BlockLength:
     # NOTE: Re-enable this when Code Climate Rubocop version updates
     - "new"
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 Style/IfUnlessModifier:
   Enabled: false
 

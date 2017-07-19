@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "forwardable"
 Dir["#{__dir__}/survey_tool/**/*.rb"].each { |file| require file }
 

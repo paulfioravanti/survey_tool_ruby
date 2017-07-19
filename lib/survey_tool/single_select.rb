@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SurveyTool
   # Class representing a "singleselect" question from a CSV file.
   #

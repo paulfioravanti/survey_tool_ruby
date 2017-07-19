@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SurveyTool
   # Error class for when the CSV file contains a question type that
   # the application does not know how to handle.

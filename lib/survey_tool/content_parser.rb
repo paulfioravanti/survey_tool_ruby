@@ -35,8 +35,6 @@ module SurveyTool
     #   if there are any issues reading or parsing the specified file.
     # @return [Array]
     #   a collection of questions of potentially different types.
-    # NOTE: I think making this method shorter will affect its readability
-    # given the nature of the `case` statement.
     def generate_questions(csv_filepath)
       absolute_filepath = File.expand_path(csv_filepath)
       csv = CSV.read(absolute_filepath, headers: true)
@@ -72,7 +70,8 @@ module SurveyTool
       Survey.new(questions, participant_count, response_count)
     end
 
-    # NOTE: I think further refactoring here will affect readability.
+    # NOTE: I think making this method shorter will affect its readability
+    # given the nature of the `case` statement.
     # rubocop:disable Metrics/MethodLength
     def generate_questions_collection(csv, filepath)
       csv.map do |question|

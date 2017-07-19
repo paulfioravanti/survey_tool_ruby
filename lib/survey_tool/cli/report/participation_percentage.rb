@@ -10,10 +10,13 @@ module SurveyTool
       module ParticipationPercentage
         module_function
 
+        # Adds the survey participation percentage row to the table.
+        #
         # @param table [Terminal::Table]
         #   The table on which to add the row.
         # @param percentage [BigDecimal]
         #   The survey participant percentage.
+        # @return [nil]
         def add_row(table, percentage)
           table.add_row(
             [

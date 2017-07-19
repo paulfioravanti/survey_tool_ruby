@@ -14,10 +14,13 @@ module SurveyTool
 
         module_function
 
+        # Adds a content row for a RatingQuestion response to the table.
+        #
         # @param table [Terminal::Table]
         #   The table on which to add the row.
         # @param question [RatingQuestion]
         #   The rating question to output.
+        # @return [nil]
         def add_row(table, question)
           table.add_row(
             [

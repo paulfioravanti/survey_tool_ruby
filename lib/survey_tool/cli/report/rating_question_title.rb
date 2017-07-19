@@ -10,8 +10,11 @@ module SurveyTool
       module RatingQuestionTitle
         module_function
 
+        # Adds the title row for RatingQuestion responses to the table.
+        #
         # @param table [Terminal::Table]
         #   The table on which to add the row.
+        # @return [nil]
         def add_row(table)
           table.add_row(
             [

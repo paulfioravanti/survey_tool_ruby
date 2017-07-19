@@ -10,8 +10,11 @@ module SurveyTool
       module RatingQuestionHeaders
         module_function
 
+        # Adds the column header row for RatingQuestion responses.
+        #
         # @param table [Terminal::Table]
         #   The table on which to add the row.
+        # @return [nil]
         def add_row(table)
           table.add_row(
             [

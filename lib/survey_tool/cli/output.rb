@@ -17,6 +17,7 @@ module SurveyTool
       #
       # @param message
       #   The error message to ouput.
+      # @return [nil]
       def error(message)
         puts red(message)
       end
@@ -25,6 +26,7 @@ module SurveyTool
       #
       # @param message
       #   The message to ouput.
+      # @return [nil]
       def plain(message)
         puts message
       end

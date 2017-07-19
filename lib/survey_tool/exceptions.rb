@@ -12,6 +12,10 @@ module SurveyTool
 
     # Initialises a new instance of the error.
     #
+    # @param filename [String]
+    #   The name of the file that has an unknown question type.
+    # @param question_type [String]
+    #   The unknown question type.
     # @return [UnknownQuestionTypeError]
     #   The new error instance.
     def initialize(filename, question_type)
@@ -33,6 +37,8 @@ module SurveyTool
 
     # Initialises a new instance of the error.
     #
+    # @param filename [String]
+    #   The name of the file that is missing headers.
     # @return [MissingHeadersError]
     #   The new error instance.
     def initialize(filename)

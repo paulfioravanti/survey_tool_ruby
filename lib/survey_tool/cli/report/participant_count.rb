@@ -10,12 +10,15 @@ module SurveyTool
       module ParticipantCount
         module_function
 
+        # Adds the participant count row to the table.
+        #
         # @param table [Terminal::Table]
         #   The table on which to add the row.
         # @param participant_count [Integer]
         #   The survey participant count
         # @param response_count [Integer]
         #   The survey response count
+        # @return [nil]
         def add_row(table, participant_count, response_count)
           table.add_row(
             [

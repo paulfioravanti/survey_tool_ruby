@@ -2,6 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/paulfioravanti/survey_tool/badges/gpa.svg)](https://codeclimate.com/github/paulfioravanti/survey_tool)
 [![Coverage](https://codeclimate.com/github/paulfioravanti/survey_tool/badges/coverage.svg)](https://codeclimate.com/github/paulfioravanti/survey_tool)
 [![Dependency Status](https://gemnasium.com/badges/github.com/paulfioravanti/survey_tool.svg)](https://gemnasium.com/github.com/paulfioravanti/survey_tool)
+[![Inline docs](http://inch-ci.org/github/paulfioravanti/survey_tool.svg?branch=master)](http://inch-ci.org/github/paulfioravanti/survey_tool)
 [![git.legal](https://git.legal/projects/4738/badge.svg?key=6a6b2594f976e68abe3a "Number of libraries approved")](https://git.legal/projects/4738)
 
 # CSV Survey Tool Developer Coding Test

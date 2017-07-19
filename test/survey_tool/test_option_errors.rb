@@ -13,15 +13,13 @@ module SurveyTool
   # that an error was output with the expected string message is left
   # up to mocks.
   class TestOptionErrors < Minitest::Test
-    attr_reader :help_output
+    attr_reader :help_output, :error_output_mock
 
     def setup
       @help_output = File.read("test/fixtures/output/help_output.txt")
     end
 
     class TestNoOptions < TestOptionErrors
-      attr_reader :error_output_mock
-
       def setup
         # ARGV remains []
         @error_output_mock =
@@ -35,15 +33,15 @@ module SurveyTool
       def test_application_prints_error_message_with_help
         CLI::Output.stub(:error, error_output_mock) do
           assert_output(help_output) do
-            assert_raises(SystemExit) { Application.start }
+            assert_raises(SystemExit) do
+              Application.start
+            end
           end
         end
       end
     end
 
     class TestQuestionOptionButNoFile < TestOptionErrors
-      attr_reader :error_output_mock
-
       def setup
         ARGV.push("--questions_filepath")
         @error_output_mock =
@@ -57,15 +55,15 @@ module SurveyTool
       def test_application_prints_error_message_with_help
         CLI::Output.stub(:error, error_output_mock) do
           assert_output(help_output) do
-            assert_raises(SystemExit) { Application.start }
+            assert_raises(SystemExit) do
+              Application.start
+            end
           end
         end
       end
     end
 
     class TestResponseOptionButNoFile < TestOptionErrors
-      attr_reader :error_output_mock
-
       # rubocop:disable Metrics/MethodLength
       def setup
         ARGV.push(
@@ -85,15 +83,15 @@ module SurveyTool
       def test_application_prints_error_message_with_help
         CLI::Output.stub(:error, error_output_mock) do
           assert_output(help_output) do
-            assert_raises(SystemExit) { Application.start }
+            assert_raises(SystemExit) do
+              Application.start
+            end
           end
         end
       end
     end
 
     class TestOnlyResponseOption < TestOptionErrors
-      attr_reader :error_output_mock
-
       def setup
         ARGV.push(
           "--responses_filepath",
@@ -110,7 +108,9 @@ module SurveyTool
       def test_application_prints_error_message_with_help
         CLI::Output.stub(:error, error_output_mock) do
           assert_output(help_output) do
-            assert_raises(SystemExit) { Application.start }
+            assert_raises(SystemExit) do
+              Application.start
+            end
           end
         end
       end

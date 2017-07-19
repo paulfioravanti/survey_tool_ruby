@@ -86,7 +86,9 @@ module SurveyTool
 
     def test_application_prints_the_error_to_stdout
       assert_output(output) do
-        assert_raises(SystemExit) { Application.start }
+        assert_raises(SystemExit) do
+          Application.start
+        end
       end
     end
   end

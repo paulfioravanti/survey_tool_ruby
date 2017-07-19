@@ -11,29 +11,29 @@ module SurveyTool
     end
 
     class TestShortOption < TestVersion
-      attr_reader :output
-
       def setup
         ARGV.push("-v")
       end
 
       def test_prints_out_the_survey_tool_version
         assert_output(output) do
-          assert_raises(SystemExit) { Application.start }
+          assert_raises(SystemExit) do
+            Application.start
+          end
         end
       end
     end
 
     class TestLongOption < TestVersion
-      attr_reader :output
-
       def setup
         ARGV.push("--version")
       end
 
       def test_prints_out_the_survey_tool_version
         assert_output(output) do
-          assert_raises(SystemExit) { Application.start }
+          assert_raises(SystemExit) do
+            Application.start
+          end
         end
       end
     end

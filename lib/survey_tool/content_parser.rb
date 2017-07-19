@@ -37,27 +37,14 @@ module SurveyTool
     #   a collection of questions of potentially different types.
     # NOTE: I think making this method shorter will affect its readability
     # given the nature of the `case` statement.
-    # rubocop:disable Metrics/MethodLength
     def generate_questions(csv_filepath)
       absolute_filepath = File.expand_path(csv_filepath)
       csv = CSV.read(absolute_filepath, headers: true)
       if csv.headers.empty?
         raise MissingHeadersError, absolute_filepath
       end
-
-      csv.map do |question|
-        type, theme, text = question.values_at("type", "theme", "text")
-        case type
-        when "ratingquestion"
-          RatingQuestion.new(theme, text)
-        when "singleselect"
-          SingleSelect.new(theme, text)
-        else
-          raise UnknownQuestionTypeError, absolute_filepath, type
-        end
-      end
+      generate_questions_collection(csv, absolute_filepath)
     end
-    # rubocop:enable Metrics/MethodLength
 
     # Reads the responses CSV file line-by-line, inserts information
     # into question objects based on the information contained in
@@ -84,6 +71,24 @@ module SurveyTool
       end
       Survey.new(questions, participant_count, response_count)
     end
+
+    # NOTE: I think further refactoring here will affect readability.
+    # rubocop:disable Metrics/MethodLength
+    def generate_questions_collection(csv, filepath)
+      csv.map do |question|
+        type, theme, text = question.values_at("type", "theme", "text")
+        case type
+        when "ratingquestion"
+          RatingQuestion.new(theme, text)
+        when "singleselect"
+          SingleSelect.new(theme, text)
+        else
+          raise UnknownQuestionTypeError.new(filepath, type)
+        end
+      end
+    end
+    # rubocop:enable Metrics/MethodLength
+    private_class_method :generate_questions_collection
 
     def collate_answers(questions, response)
       questions.zip(response[ANSWERS_RANGE]).each do |question, answer|

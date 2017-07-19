@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "survey_tool/version"
 
 # NOTE: Remove this disable when Code Climate Rubocop version updates
-# rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength, Lint/UnneededDisable
 Gem::Specification.new do |spec|
   spec.name = "survey_tool"
   spec.version = SurveyTool::VERSION
@@ -47,4 +47,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubygems-tasks", "~> 0.2"
   spec.add_development_dependency "simplecov", "~> 0.14"
 end
-# rubocop:enable Metrics/BlockLength
+# rubocop:enable Metrics/BlockLength, Lint/UnneededDisable

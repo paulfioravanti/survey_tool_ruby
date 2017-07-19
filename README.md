@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/paulfioravanti/survey_tool.svg?branch=master)](https://travis-ci.org/paulfioravanti/survey_tool)
+
 # CSV Survey Tool Developer Coding Test
 
 A CLI application that parses and displays survey data from CSV files,

@@ -12,14 +12,14 @@ module SurveyTool
   # following types of errors occur i.e. the "help" output.  Asserting
   # that an error was output with the expected string message is left
   # up to mocks.
-  class TestGenerateReportWithoutOptions < Minitest::Test
+  class TestOptionErrors < Minitest::Test
     attr_reader :help_output
 
     def setup
-      @help_output = File.read("test/fixtures/help_output.txt")
+      @help_output = File.read("test/fixtures/output/help_output.txt")
     end
 
-    class TestNoOptions < TestGenerateReportWithoutOptions
+    class TestNoOptions < TestOptionErrors
       attr_reader :error_output_mock
 
       def setup
@@ -41,7 +41,7 @@ module SurveyTool
       end
     end
 
-    class TestQuestionOptionButNoFile < TestGenerateReportWithoutOptions
+    class TestQuestionOptionButNoFile < TestOptionErrors
       attr_reader :error_output_mock
 
       def setup
@@ -63,14 +63,14 @@ module SurveyTool
       end
     end
 
-    class TestResponseOptionButNoFile < TestGenerateReportWithoutOptions
+    class TestResponseOptionButNoFile < TestOptionErrors
       attr_reader :error_output_mock
 
       # rubocop:disable Metrics/MethodLength
       def setup
         ARGV.push(
           "--questions_filepath",
-          "test/fixtures/valid_survey_questions.csv",
+          "test/fixtures/questions/valid_survey_questions.csv",
           "--responses_filepath"
         )
         @error_output_mock =
@@ -91,13 +91,13 @@ module SurveyTool
       end
     end
 
-    class TestOnlyResponseOption < TestGenerateReportWithoutOptions
+    class TestOnlyResponseOption < TestOptionErrors
       attr_reader :error_output_mock
 
       def setup
         ARGV.push(
           "--responses_filepath",
-          "test/fixtures/valid_survey_responses.csv"
+          "test/fixtures/responses/valid_survey_responses.csv"
         )
         @error_output_mock =
           Minitest::Mock.new.expect(

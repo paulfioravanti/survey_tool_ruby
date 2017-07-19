@@ -17,7 +17,7 @@ module SurveyTool
 
       def test_assumes_responses_file_location_and_prints_a_report_to_stdout
         # Application will find the following file:
-        # test/fixtures/valid_survey_questions-responses.csv
+        # test/fixtures/responses/valid_survey_questions-responses.csv
         assert_output(output) { Application.start }
       end
     end
@@ -32,7 +32,7 @@ module SurveyTool
 
       def test_assumes_responses_file_location_and_prints_a_report_to_stdout
         # Application will find the following file:
-        # test/fixtures/valid_survey_questions-responses.csv
+        # test/fixtures/responses/valid_survey_questions-responses.csv
         assert_output(output) { Application.start }
       end
     end

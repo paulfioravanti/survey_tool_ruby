@@ -3,35 +3,31 @@
 require "test_helper"
 
 module SurveyTool
-  class TestVersion < Minitest::Test
+  class TestHelp < Minitest::Test
     attr_reader :output
 
     def setup
-      @output = "#{VERSION}\n"
+      @output = File.read("test/fixtures/output/help_output.txt")
     end
 
-    class TestShortOption < TestVersion
-      attr_reader :output
-
+    class TestShortOption < TestHelp
       def setup
-        ARGV.push("-v")
+        ARGV.push("-h")
       end
 
-      def test_prints_out_the_survey_tool_version
+      def test_help_prints_out_the_help_message
         assert_output(output) do
           assert_raises(SystemExit) { Application.start }
         end
       end
     end
 
-    class TestLongOption < TestVersion
-      attr_reader :output
-
+    class TestLongOption < TestHelp
       def setup
-        ARGV.push("--version")
+        ARGV.push("--help")
       end
 
-      def test_prints_out_the_survey_tool_version
+      def test_help_prints_out_the_help_message
         assert_output(output) do
           assert_raises(SystemExit) { Application.start }
         end

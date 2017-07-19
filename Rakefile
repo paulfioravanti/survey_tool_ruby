@@ -9,4 +9,11 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/*_test.rb"]
 end
 
-task default: :test
+task :tests, [:coverage] do |_task, args|
+  if args.coverage == "NO_COVERAGE"
+    ENV["NO_COVERAGE"] = "true"
+  end
+  Rake::Task[:test].invoke
+end
+
+task default: :tests

@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 group :red_green_refactor, halt_on_fail: true do
-  guard :rake,
-        task: :test,
-        task_args: ["NO_COVERAGE"],
-        run_on_start: false do
+  guard :rake, task: :tests, task_args: ["NO_COVERAGE"], run_on_start: false do
     # with Minitest::Unit
     watch(%r{^test/(.*)\/?test_(.*)\.rb$})
     watch(%r{^lib/(.*/)?([^/]+)\.rb$}) { |m| "test/#{m[1]}test_#{m[2]}.rb" }

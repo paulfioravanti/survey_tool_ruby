@@ -22,7 +22,8 @@ module SurveyTool
 
   # Error class for when a CSV file does not contain headers but they were
   # expected.  Ruby's CSV class does not raise any errors when the
-  # headers: true option is passed to CSV.read: they just get ignored
+  # headers: true option is passed to CSV.read but none are present:
+  # they just seem to get ignored.
   #
   # @author Paul Fioravanti
   class MissingHeadersError < StandardError

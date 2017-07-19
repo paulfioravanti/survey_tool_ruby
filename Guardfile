@@ -5,9 +5,9 @@ group :red_green_refactor, halt_on_fail: true do
         env: { "NO_COVERAGE" => "true" },
         all_env: { "NO_COVERAGE" => "false" },
         all_on_start: false do
-    watch(%r{^test/(.*)\/?test_(.*)\.rb$})
-    watch(%r{^lib/(.*/)?([^/]+)\.rb$}) { |m| "test/#{m[1]}test_#{m[2]}.rb" }
-    watch(%r{^test/test_helper\.rb$}) { "test" }
+    watch(%r{\Atest/(.*)\/?test_(.*)\.rb\z})
+    watch(%r{\Alib/(.*/)?([^/]+)\.rb\z}) { |m| "test/#{m[1]}test_#{m[2]}.rb" }
+    watch(%r{\Atest/test_helper\.rb\z}) { "test" }
   end
 
   guard :reek, all_on_start: false do

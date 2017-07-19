@@ -6,6 +6,6 @@ unless ENV["NO_COVERAGE"] == "true"
     # NOTE: Switch out these statements dependent on whether
     # very active development is occurring or not.
     # SimpleCov.minimum_coverage 100
-    SimpleCov.refuse_coverage_drop
+    # SimpleCov.refuse_coverage_drop
   end
 end

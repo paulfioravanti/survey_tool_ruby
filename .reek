@@ -39,3 +39,7 @@ TooManyStatements:
   # so it doesn't need to be repeated for test files classes.
   IrresponsibleModule:
     enabled: false
+  UtiltityFunction:
+    # NOTE: Reek thinks the `setup` block is a UtilityFunction,
+    # so disable this check.
+    enabled: false

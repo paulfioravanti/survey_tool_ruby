@@ -31,7 +31,7 @@ module SurveyTool
     # given the nature of the `case` statement.
     # rubocop:disable Metrics/MethodLength
     def generate_questions(csv_filepath)
-      CSV.read(csv_filepath, headers: true).map do |question|
+      CSV.read(File.expand_path(csv_filepath), headers: true).map do |question|
         type, theme, text = question.values_at("type", "theme", "text")
         case type
         when "ratingquestion"
@@ -57,7 +57,7 @@ module SurveyTool
     #   The survey to output.
     def generate_survey(csv_filepath, questions)
       participant_count = response_count = 0
-      CSV.foreach(csv_filepath) do |response|
+      CSV.foreach(File.expand_path(csv_filepath)) do |response|
         response_count += 1
         if timestamped?(response)
           participant_count += 1

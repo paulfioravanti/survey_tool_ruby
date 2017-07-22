@@ -14,21 +14,17 @@ module SurveyTool
 
         module_function
 
-        # Adds the title row for RatingQuestion responses to the table.
+        # Returns the config for RatingQuestion response title row.
         #
-        # @param table [Terminal::Table]
-        #   The table on which to add the row.
         # @return [nil]
-        def add_row(table)
-          table.add_row(
-            [
-              {
-                value: "Rating Question Averages (submitted surveys only)",
-                colspan: COLUMN_SPAN,
-                alignment: :center
-              }
-            ]
-          )
+        def row
+          [
+            {
+              value: "Rating Question Averages (submitted surveys only)",
+              colspan: COLUMN_SPAN,
+              alignment: :center
+            }
+          ]
         end
       end
     end

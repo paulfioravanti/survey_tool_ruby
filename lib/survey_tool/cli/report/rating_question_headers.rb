@@ -10,20 +10,16 @@ module SurveyTool
       module RatingQuestionHeaders
         module_function
 
-        # Adds the column header row for RatingQuestion responses.
+        # Returns the config for the RatingQuestion responses column header row.
         #
-        # @param table [Terminal::Table]
-        #   The table on which to add the row.
         # @return [nil]
-        def add_row(table)
-          table.add_row(
-            [
-              "Theme",
-              "Question",
-              { value: "Average Score", alignment: :right },
-              { value: "No. Scores Submitted", alignment: :right }
-            ]
-          )
+        def row
+          [
+            "Theme",
+            "Question",
+            { value: "Average Score", alignment: :right },
+            { value: "No. Scores Submitted", alignment: :right }
+          ]
         end
       end
     end

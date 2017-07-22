@@ -28,12 +28,12 @@ module SurveyTool
       end
 
       def participation_data(table, survey)
-        ParticipationPercentage.add_row(table, survey.participation_percentage)
+        table.add_row(
+          ParticipationPercentage.row(survey.participation_percentage)
+        )
         table.add_separator
-        ParticipantCount.add_row(
-          table,
-          survey.participant_count,
-          survey.response_count
+        table.add_row(
+          ParticipantCount.row(survey.participant_count, survey.response_count)
         )
       end
       private_class_method :participation_data
@@ -49,16 +49,16 @@ module SurveyTool
 
       def survey_headers(table, type)
         table.add_separator
-        Report.const_get("#{type}Title").add_row(table)
+        table.add_row(Report.const_get("#{type}Title").row)
         table.add_separator
-        Report.const_get("#{type}Headers").add_row(table)
+        table.add_row(Report.const_get("#{type}Headers").row)
       end
       private_class_method :survey_headers
 
       def survey_content(questions, table, type)
         questions.each do |question|
           table.add_separator
-          Report.const_get("#{type}Content").add_row(table, question)
+          table.add_row(Report.const_get("#{type}Content").row(question))
         end
       end
       private_class_method :survey_content

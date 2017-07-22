@@ -21,8 +21,8 @@ FeatureEnvy:
     - SurveyTool::Application#start
     - SurveyTool::CLI::OptionParser#check_missing_options
     - SurveyTool::CLI::OptionParser#option_parser
-    - SurveyTool::CLI::Report::RatingQuestionContent#add_row
-    - SurveyTool::CLI::Report::SingleSelectContent#add_row
+    - SurveyTool::CLI::Report::RatingQuestionContent#row
+    - SurveyTool::CLI::Report::SingleSelectContent#row
     - SurveyTool::ContentParser#generate_questions
     - SurveyTool::RatingQuestion#add_answer
 TooManyStatements:

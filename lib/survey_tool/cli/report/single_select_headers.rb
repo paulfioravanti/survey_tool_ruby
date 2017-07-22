@@ -14,26 +14,20 @@ module SurveyTool
 
         module_function
 
-        # Adds the column header row for SingleSelect responses.
+        # Returns the config for the SingleSelect responses column header row.
         #
-        # @param table [Terminal::Table]
-        #   The table on which to add the row.
         # @return [nil]
-        # rubocop:disable Metrics/MethodLength
-        def add_row(table)
-          table.add_row(
-            [
-              "Theme",
-              "Selection",
-              {
-                value: "Values (Occurances)",
-                alignment: :right,
-                colspan: COLUMN_SPAN
-              }
-            ]
-          )
+        def row
+          [
+            "Theme",
+            "Selection",
+            {
+              value: "Values (Occurances)",
+              alignment: :right,
+              colspan: COLUMN_SPAN
+            }
+          ]
         end
-        # rubocop:enable Metrics/MethodLength
       end
     end
   end

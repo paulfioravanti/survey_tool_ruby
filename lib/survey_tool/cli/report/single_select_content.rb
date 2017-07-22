@@ -17,21 +17,17 @@ module SurveyTool
 
         module_function
 
-        # Adds a content row for a SingleSelect response to the table.
+        # Returns the config for a content row for a SingleSelect response.
         #
-        # @param table [Terminal::Table]
-        #   The table on which to add the row.
         # @param question [SingleSelect]
         #   The single select question to output.
         # @return [nil]
-        def add_row(table, question)
-          table.add_row(
-            [
-              question.theme,
-              Utilities.word_wrap(question.text, CHARACTER_LIMIT),
-              answers(question.answers)
-            ]
-          )
+        def row(question)
+          [
+            question.theme,
+            Utilities.word_wrap(question.text, CHARACTER_LIMIT),
+            answers(question.answers)
+          ]
         end
 
         def answers(answers)

@@ -14,21 +14,17 @@ module SurveyTool
 
         module_function
 
-        # Adds the title row for SingleSelect responses to the table.
+        # Returns the config for SingleSelect response title row.
         #
-        # @param table [Terminal::Table]
-        #   The table on which to add the row.
         # @return [nil]
-        def add_row(table)
-          table.add_row(
-            [
-              {
-                value: "Single Select Question Values (submitted surveys only)",
-                colspan: COLUMN_SPAN,
-                alignment: :center
-              }
-            ]
-          )
+        def row
+          [
+            {
+              value: "Single Select Question Values (submitted surveys only)",
+              colspan: COLUMN_SPAN,
+              alignment: :center
+            }
+          ]
         end
       end
     end

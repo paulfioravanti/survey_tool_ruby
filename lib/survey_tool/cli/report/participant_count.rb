@@ -14,26 +14,22 @@ module SurveyTool
 
         module_function
 
-        # Adds the participant count row to the table.
+        # Returns the config for the participant count report row.
         #
-        # @param table [Terminal::Table]
-        #   The table on which to add the row.
         # @param participant_count [Integer]
         #   The survey participant count
         # @param response_count [Integer]
         #   The survey response count
         # @return [nil]
-        def add_row(table, participant_count, response_count)
-          table.add_row(
-            [
-              { value: "Participant Count", colspan: COLUMN_SPAN },
-              {
-                value: "#{participant_count}/#{response_count} submitted.",
-                alignment: :right,
-                colspan: COLUMN_SPAN
-              }
-            ]
-          )
+        def row(participant_count, response_count)
+          [
+            { value: "Participant Count", colspan: COLUMN_SPAN },
+            {
+              value: "#{participant_count}/#{response_count} submitted.",
+              alignment: :right,
+              colspan: COLUMN_SPAN
+            }
+          ]
         end
       end
     end

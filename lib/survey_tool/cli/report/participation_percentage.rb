@@ -17,24 +17,20 @@ module SurveyTool
 
         module_function
 
-        # Adds the survey participation percentage row to the table.
+        # Returns the config for the participation percentage report row.
         #
-        # @param table [Terminal::Table]
-        #   The table on which to add the row.
         # @param percentage [BigDecimal]
         #   The survey participant percentage.
         # @return [nil]
-        def add_row(table, percentage)
-          table.add_row(
-            [
-              { value: "Participation Percentage", colspan: COLUMN_SPAN },
-              {
-                value: formatted_percentage(percentage),
-                alignment: :right,
-                colspan: COLUMN_SPAN
-              }
-            ]
-          )
+        def row(percentage)
+          [
+            { value: "Participation Percentage", colspan: COLUMN_SPAN },
+            {
+              value: formatted_percentage(percentage),
+              alignment: :right,
+              colspan: COLUMN_SPAN
+            }
+          ]
         end
 
         def formatted_percentage(percentage)

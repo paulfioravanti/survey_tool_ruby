@@ -7,7 +7,7 @@ module SurveyTool
     # CLI argument validity parser.
     #
     # @author Paul Fioravanti
-    module ArgumentParser
+    module OptionParser
       # Set of options that must be provided when running application.
       REQUIRED_OPTIONS = [:questions_filepath].freeze
       private_constant :REQUIRED_OPTIONS
@@ -30,7 +30,8 @@ module SurveyTool
         optparse.parse!(ARGV)
         check_missing_options(options)
         [options[:questions_filepath], responses_filepath(options)]
-      rescue OptionParser::InvalidOption, OptionParser::MissingArgument => error
+      rescue ::OptionParser::InvalidOption,
+             ::OptionParser::MissingArgument => error
         Output.error(error.to_s)
         Output.plain(optparse)
         exit(1)
@@ -39,7 +40,7 @@ module SurveyTool
       # NOTE: OptionParser API forcing the long method, so ignore Rubocop
       # rubocop:disable Metrics/MethodLength
       def option_parser(options)
-        OptionParser.new do |parser|
+        ::OptionParser.new do |parser|
           parser.banner = "Usage: ./bin/survey-tool [options]"
           parser.separator("")
           parser.separator "Specific options:"
@@ -101,7 +102,7 @@ module SurveyTool
         # NOTE: I think the non-guard clause reads better here.
         # rubocop:disable Style/GuardClause
         if missing.any?
-          raise OptionParser::MissingArgument, missing.join(", ")
+          raise ::OptionParser::MissingArgument, missing.join(", ")
         end
         # rubocop:enable Style/GuardClause
       end

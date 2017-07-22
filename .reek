@@ -10,7 +10,7 @@ DataClump:
 DuplicateMethodCall:
   exclude:
     # NOTE: This is due to the OptionParser syntax
-    - SurveyTool::CLI::ArgumentParser#option_parser
+    - SurveyTool::CLI::OptionParser#option_parser
     # NOTE: This is due to the Terminal::Table syntax
     - SurveyTool::CLI::Report#survey_headers
 FeatureEnvy:
@@ -19,8 +19,8 @@ FeatureEnvy:
   # `self`.
   exclude:
     - SurveyTool::Application#start
-    - SurveyTool::CLI::ArgumentParser#check_missing_options
-    - SurveyTool::CLI::ArgumentParser#option_parser
+    - SurveyTool::CLI::OptionParser#check_missing_options
+    - SurveyTool::CLI::OptionParser#option_parser
     - SurveyTool::CLI::Report::RatingQuestionContent#add_row
     - SurveyTool::CLI::Report::SingleSelectContent#add_row
     - SurveyTool::ContentParser#generate_questions
@@ -31,8 +31,8 @@ TooManyStatements:
   # shorter will impact readability.
   exclude:
     - SurveyTool::Application#start
-    - SurveyTool::CLI::ArgumentParser#fetch_filepaths
-    - SurveyTool::CLI::ArgumentParser#option_parser
+    - SurveyTool::CLI::OptionParser#fetch_filepaths
+    - SurveyTool::CLI::OptionParser#option_parser
     - SurveyTool::ContentParser#generate_survey
 exclude_paths:
   # NOTE: CI goes looking in the vendor directory and attempts to scan all files

@@ -11,16 +11,22 @@ module SurveyTool
 
     # Starts the application and is the "controller" rallying point
     # for fetching all the information needed to output a survey table.
+    #
+    # rubocop:disable Metrics/MethodLength
     def start
-      questions_filepath, responses_filepath = CLI::OptionParser.fetch_filepaths
-      questions = ContentParser.generate_questions(questions_filepath)
-      survey = ContentParser.generate_survey(responses_filepath, questions)
-      CLI::Report.output(survey)
+      catch(:halt) do
+        questions_filepath, responses_filepath =
+          CLI::OptionParser.fetch_filepaths
+        questions = ContentParser.generate_questions(questions_filepath)
+        survey = ContentParser.generate_survey(responses_filepath, questions)
+        CLI::Report.output(survey)
+      end
     rescue StandardError => error
-      CLI::Output.error(
-        "Could not generate report: #{error.message} (#{error.class})"
+      CLI::Output.messages(
+        error: "Could not generate report: #{error.message} (#{error.class})"
       )
       exit(1)
     end
+    # rubocop:enable Metrics/MethodLength
   end
 end

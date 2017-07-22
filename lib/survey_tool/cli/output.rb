@@ -17,28 +17,29 @@ module SurveyTool
 
       module_function
 
-      # Outputs the error message to `$stdout` in red, with a newline ending.
+      # Outputs the combined content of a set of message types.
       #
-      # @param message
-      #   The error message to ouput.
+      # @param options [Hash]
+      #   The set of messages to output
+      # @option options [String] :error
+      #   The message to print out as an error.
+      # @option options [String] :info
+      #   The message to print out as a standard message.
       # @return [nil]
-      def error(message)
-        puts red(message)
+      def messages(**options)
+        output = options.map { |type, value| __send__(type, value) }
+        puts output.join("\n")
       end
 
-      # Outputs the message to `$stdout`, with a newline ending.
-      #
-      # @param message
-      #   The message to ouput.
-      # @return [nil]
-      def plain(message)
-        puts message
+      def info(text)
+        text
       end
+      private_class_method :info
 
-      def red(text)
+      def error(text)
         colourize(text, colour_code: RED)
       end
-      private_class_method :red
+      private_class_method :error
 
       def colourize(text, colour_code:)
         "\e[#{colour_code}m#{text}\e[0m"

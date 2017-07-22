@@ -13,7 +13,7 @@ module SurveyTool
   # that an error was output with the expected string message is left
   # up to mocks.
   class TestOptionErrors < Minitest::Test
-    attr_reader :help_output, :error_output_mock
+    attr_reader :help_output, :error_output
 
     def setup
       @help_output = File.read("test/fixtures/output/help_output.txt")
@@ -22,96 +22,66 @@ module SurveyTool
     class TestNoOptions < TestOptionErrors
       def setup
         # ARGV remains []
-        @error_output_mock =
-          Minitest::Mock.new.expect(
-            :call,
-            :error_retval,
-            ["missing argument: questions_filepath"]
-          )
+        super
+        @error_output =
+          CLI::Output.__send__(:error, "missing argument: questions_filepath")
       end
 
       def test_application_prints_error_message_with_help
-        CLI::Output.stub(:error, error_output_mock) do
-          assert_output(help_output) do
-            assert_raises(SystemExit) do
-              Application.start
-            end
-          end
+        assert_output("#{error_output}\n#{help_output}") do
+          Application.start
         end
       end
     end
 
     class TestQuestionOptionButNoFile < TestOptionErrors
       def setup
+        super
         ARGV.push("--questions_filepath")
-        @error_output_mock =
-          Minitest::Mock.new.expect(
-            :call,
-            :error_retval,
-            ["missing argument: --questions_filepath"]
-          )
+        @error_output =
+          CLI::Output.__send__(:error, "missing argument: --questions_filepath")
       end
 
       def test_application_prints_error_message_with_help
-        CLI::Output.stub(:error, error_output_mock) do
-          assert_output(help_output) do
-            assert_raises(SystemExit) do
-              Application.start
-            end
-          end
+        assert_output("#{error_output}\n#{help_output}") do
+          Application.start
         end
       end
     end
 
     class TestResponseOptionButNoFile < TestOptionErrors
-      # rubocop:disable Metrics/MethodLength
       def setup
+        super
         ARGV.push(
           "--questions_filepath",
           "test/fixtures/questions/valid_survey_questions.csv",
           "--responses_filepath"
         )
-        @error_output_mock =
-          Minitest::Mock.new.expect(
-            :call,
-            :error_retval,
-            ["missing argument: --responses_filepath"]
-          )
+        @error_output =
+          CLI::Output.__send__(:error, "missing argument: --responses_filepath")
       end
-      # rubocop:enable Metrics/MethodLength
 
       def test_application_prints_error_message_with_help
-        CLI::Output.stub(:error, error_output_mock) do
-          assert_output(help_output) do
-            assert_raises(SystemExit) do
-              Application.start
-            end
-          end
+        assert_output("#{error_output}\n#{help_output}") do
+          Application.start
         end
       end
     end
 
     class TestOnlyResponseOption < TestOptionErrors
       def setup
+        super
         ARGV.push(
           "--responses_filepath",
           "test/fixtures/responses/valid_survey_responses.csv"
         )
-        @error_output_mock =
-          Minitest::Mock.new.expect(
-            :call,
-            :error_retval,
-            ["missing argument: questions_filepath"]
-          )
+        @error_output =
+          CLI::Output.__send__(:error, "missing argument: questions_filepath")
       end
 
       def test_application_prints_error_message_with_help
-        CLI::Output.stub(:error, error_output_mock) do
-          assert_output(help_output) do
-            assert_raises(SystemExit) do
-              Application.start
-            end
-          end
+        assert_output("#{error_output}\n#{help_output}") do
+          Application.start
         end
       end
     end

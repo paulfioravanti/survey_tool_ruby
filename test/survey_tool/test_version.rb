@@ -17,9 +17,7 @@ module SurveyTool
 
       def test_prints_out_the_survey_tool_version
         assert_output(output) do
-          assert_raises(SystemExit) do
-            Application.start
-          end
+          Application.start
         end
       end
     end
@@ -31,9 +29,7 @@ module SurveyTool
 
       def test_prints_out_the_survey_tool_version
         assert_output(output) do
-          assert_raises(SystemExit) do
-            Application.start
-          end
+          Application.start
         end
       end
     end

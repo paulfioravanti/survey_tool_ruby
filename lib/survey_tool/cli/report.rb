@@ -24,7 +24,7 @@ module SurveyTool
               survey_content_for(table, survey, "SingleSelect")
             end
           end
-        Output.plain(data)
+        Output.messages(info: data)
       end
 
       def participation_data(table, survey)

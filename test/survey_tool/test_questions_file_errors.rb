@@ -13,7 +13,7 @@ module SurveyTool
       ARGV.push("--questions_filepath", questions_filepath)
       @output =
         CLI::Output.__send__(
-          :red,
+          :error,
           "Could not generate report: "\
           "No such file or directory @ rb_sysopen - "\
           "#{File.expand_path(questions_filepath)} "\
@@ -43,7 +43,7 @@ module SurveyTool
       )
       @output =
         CLI::Output.__send__(
-          :red,
+          :error,
           "Could not generate report: "\
           "CSV file "\
           "#{File.expand_path(questions_filepath)} "\
@@ -74,7 +74,7 @@ module SurveyTool
       )
       @output =
         CLI::Output.__send__(
-          :red,
+          :error,
           "Could not generate report: "\
           "CSV file "\
           "#{File.expand_path(questions_filepath)} "\

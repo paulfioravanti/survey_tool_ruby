@@ -7,7 +7,7 @@ module SurveyTool
     attr_reader :output
 
     def setup
-      @output = File.read("test/fixtures/valid_survey_output.txt")
+      @output = File.read("test/fixtures/output/valid_survey_output.txt")
     end
 
     class TestSpecifyingOnlyQuestionsFileShort < TestGenerateReport

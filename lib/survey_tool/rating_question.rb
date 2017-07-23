@@ -3,7 +3,7 @@
 require "bigdecimal"
 
 module SurveyTool
-  # Class representing a "ratingquestion" question from a CSV file.
+  # Class representing a `ratingquestion` question from a CSV file.
   #
   # @author Paul Fioravanti
   class RatingQuestion
@@ -14,17 +14,17 @@ module SurveyTool
     MIN_SCORE = 1
     private_constant :MIN_SCORE
 
-    # @!attribute theme [r]
-    # @return [String] The theme of the question.
-    attr_reader :theme
+    # @!attribute scores [r]
+    # @return [Array] The collection of scores for the question.
+    attr_reader :scores
 
     # @!attribute text [r]
     # @return [String] The text of the question.
     attr_reader :text
 
-    # @!attribute scores [r]
-    # @return [Array] The collection of scores for the question.
-    attr_reader :scores
+    # @!attribute theme [r]
+    # @return [String] The theme of the question.
+    attr_reader :theme
 
     # Initialises a new instance of the RatingQuestion with an
     # empty collection of scores.
@@ -42,7 +42,7 @@ module SurveyTool
     end
 
     # Validates a score before adding it to the question's
-    # score collection.
+    # scores collection.
     #
     # @param string [String]
     #   The score to add to the question's scores.
@@ -56,7 +56,7 @@ module SurveyTool
       # rubocop:enable Style/GuardClause
     end
 
-    # Calculates the average of the question's score.
+    # Calculates the average of the question's scores.
     #
     # @return [BigDecimal]
     #   The average score.

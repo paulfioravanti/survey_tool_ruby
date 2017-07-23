@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SurveyTool
-  # Class representing a "singleselect" question from a CSV file.
+  # Class representing a `singleselect` question from a CSV file.
   #
   # @author Paul Fioravanti
   class SingleSelect
@@ -13,7 +13,7 @@ module SurveyTool
     # @return [String] The text of the question.
     attr_reader :text
 
-    # @!attribute scores [r]
+    # @!attribute answers [r]
     # @return [Hash] The collection of tallied answers for the question.
     attr_reader :answers
 

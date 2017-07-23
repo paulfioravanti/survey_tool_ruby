@@ -12,8 +12,10 @@ module SurveyTool
   # Delegates directly Application.start
   def_delegator Application, :start
 
-  # Entry point for running the survey tool.
   # @!method start
-  # @return (see Application.start)
+  #   Entry point for running the survey tool.
+  #
+  #   @return [nil]
+  #   @see Application.start
   module_function :start
 end

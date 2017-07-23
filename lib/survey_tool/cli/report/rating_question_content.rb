@@ -18,7 +18,8 @@ module SurveyTool
         #
         # @param question [RatingQuestion]
         #   The rating question to output.
-        # @return [nil]
+        # @return [Array]
+        #   The configuration for the row.
         def row(question)
           [
             question.theme,

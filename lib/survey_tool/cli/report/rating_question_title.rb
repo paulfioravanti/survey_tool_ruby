@@ -16,7 +16,8 @@ module SurveyTool
 
         # Returns the config for RatingQuestion response title row.
         #
-        # @return [nil]
+        # @return [Array]
+        #   The configuration for the row.
         def row
           [
             {

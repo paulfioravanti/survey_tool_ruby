@@ -21,7 +21,8 @@ module SurveyTool
         #
         # @param question [SingleSelect]
         #   The single select question to output.
-        # @return [nil]
+        # @return [Array]
+        #   The configuration for the row.
         def row(question)
           [
             question.theme,

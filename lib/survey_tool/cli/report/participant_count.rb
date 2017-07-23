@@ -20,7 +20,8 @@ module SurveyTool
         #   The survey participant count
         # @param response_count [Integer]
         #   The survey response count
-        # @return [nil]
+        # @return [Array]
+        #   The configuration for the row.
         def row(participant_count, response_count)
           [
             { value: "Participant Count", colspan: COLUMN_SPAN },

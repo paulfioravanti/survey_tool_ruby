@@ -21,7 +21,8 @@ module SurveyTool
         #
         # @param percentage [BigDecimal]
         #   The survey participant percentage.
-        # @return [nil]
+        # @return [Array]
+        #   The configuration for the row.
         def row(percentage)
           [
             { value: "Participation Percentage", colspan: COLUMN_SPAN },

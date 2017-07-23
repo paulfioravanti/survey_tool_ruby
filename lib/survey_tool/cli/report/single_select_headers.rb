@@ -16,7 +16,8 @@ module SurveyTool
 
         # Returns the config for the SingleSelect responses column header row.
         #
-        # @return [nil]
+        # @return [Array]
+        #   The configuration for the row.
         def row
           [
             "Theme",

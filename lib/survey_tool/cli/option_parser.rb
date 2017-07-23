@@ -8,6 +8,9 @@ module SurveyTool
     #
     # @author Paul Fioravanti
     module OptionParser
+      # Matches a file type eg ".csv" from "foo.csv"
+      FILE_TYPE_REGEX = /(?=[.].+\z)/
+      private_constant :FILE_TYPE_REGEX
       # Set of options that must be provided when running application.
       REQUIRED_OPTIONS = [:questions_filepath].freeze
       private_constant :REQUIRED_OPTIONS
@@ -115,7 +118,7 @@ module SurveyTool
       def responses_filepath(options)
         options[:responses_filepath] ||
           options[:questions_filepath].
-            split(/(?=[.].+\z)/).
+            split(FILE_TYPE_REGEX).
             insert(1, "-responses").
             join
       end

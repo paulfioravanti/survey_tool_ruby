@@ -50,7 +50,7 @@ module SurveyTool
       score = string.to_i
       # NOTE: I think the non-guard clause reads better here.
       # rubocop:disable Style/GuardClause
-      if score.to_i.between?(MIN_SCORE, MAX_SCORE)
+      if score.between?(MIN_SCORE, MAX_SCORE)
         scores << score
       end
       # rubocop:enable Style/GuardClause

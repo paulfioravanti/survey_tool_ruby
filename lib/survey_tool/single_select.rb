@@ -5,17 +5,15 @@ module SurveyTool
   #
   # @author Paul Fioravanti
   class SingleSelect
-    # @!attribute theme [r]
-    # @return [String] The theme of the question.
-    attr_reader :theme
-
-    # @!attribute text [r]
-    # @return [String] The text of the question.
-    attr_reader :text
-
     # @!attribute answers [r]
     # @return [Hash] The collection of tallied answers for the question.
     attr_reader :answers
+    # @!attribute text [r]
+    # @return [String] The text of the question.
+    attr_reader :text
+    # @!attribute theme [r]
+    # @return [String] The theme of the question.
+    attr_reader :theme
 
     # Initialises a new instance of the SingleSelect with an
     # empty collection of answers.

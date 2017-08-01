@@ -60,7 +60,7 @@ module SurveyTool
       def questions_filepath_option(parser, options)
         parser.on(
           "-q",
-          "--questions_filepath FILEPATH",
+          "--questions-filepath FILEPATH",
           "The FILEPATH of the questions file."
         ) do |filepath|
           options[:questions_filepath] = filepath
@@ -71,9 +71,9 @@ module SurveyTool
       def responses_filepath_option(parser, options)
         parser.on(
           "-r",
-          "--responses_filepath FILEPATH",
+          "--responses-filepath FILEPATH",
           "The FILEPATH of the responses file. "\
-          "Defaults to the <questions_filepath>-responses.csv"
+          "Defaults to the <questions-filepath>-responses.csv"
         ) do |filepath|
           options[:responses_filepath] = filepath
         end

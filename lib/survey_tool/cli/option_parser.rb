@@ -73,7 +73,7 @@ module SurveyTool
           "-r",
           "--responses-filepath FILEPATH",
           "The FILEPATH of the responses file. "\
-          "Defaults to the <questions-filepath>-responses.csv"
+          "Defaults to <questions-filepath>-responses.csv"
         ) do |filepath|
           options[:responses_filepath] = filepath
         end

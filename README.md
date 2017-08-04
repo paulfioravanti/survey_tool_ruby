@@ -63,9 +63,16 @@ coverage report:
 ## Application Documentation
 
 Generate the [YARD](https://github.com/lsegal/yard) documentation
-(if not already done by running the tests):
+(if not already done by running the tests) and open it:
 
     $ bin/yardoc
+    $ open doc/index.html
+
+## Other
+
+I also wrote a version of this app in
+[Elixir](https://github.com/elixir-lang/elixir), which can be found
+[here](https://github.com/paulfioravanti/survey_tool_elixir).
 
 ## Social
 

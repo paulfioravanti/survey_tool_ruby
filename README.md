@@ -12,8 +12,8 @@ displays survey data from CSV files, and displays the results.
 
 ## Setup
 
-    $ git clone https://github.com/paulfioravanti/survey_tool.git
-    $ cd survey_tool
+    $ git clone https://github.com/paulfioravanti/survey_tool_ruby.git
+    $ cd survey_tool_ruby
     $ bundle install
 
 ## Usage

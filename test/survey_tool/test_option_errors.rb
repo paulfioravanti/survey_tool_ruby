@@ -3,15 +3,6 @@
 require "test_helper"
 
 module SurveyTool
-  # NOTE: Error outputting happens in two stages:
-  #
-  # 1. The error message (in red)
-  # 2. The help message
-  #
-  # It only seems possible to assert against the "final" output when the
-  # following types of errors occur i.e. the "help" output.  Asserting
-  # that an error was output with the expected string message is left
-  # up to mocks.
   class TestOptionErrors < Minitest::Test
     attr_reader :help_output, :error_output
 

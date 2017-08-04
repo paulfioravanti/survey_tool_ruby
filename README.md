@@ -7,8 +7,8 @@
 
 # CSV Survey Tool Developer Coding Test
 
-A CLI application that parses and displays survey data from CSV files,
-and displays the results.
+A [Ruby](https://github.com/ruby/ruby) CLI application that parses and
+displays survey data from CSV files, and displays the results.
 
 ## Setup
 

@@ -1,14 +1,14 @@
-[![Build Status](https://travis-ci.org/paulfioravanti/survey_tool_ruby.svg?branch=master)](https://travis-ci.org/paulfioravanti/survey_tool_ruby)
-[![Code Climate](https://codeclimate.com/github/paulfioravanti/survey_tool_ruby/badges/gpa.svg)](https://codeclimate.com/github/paulfioravanti/survey_tool_ruby)
-[![Coverage](https://codeclimate.com/github/paulfioravanti/survey_tool_ruby/badges/coverage.svg)](https://codeclimate.com/github/paulfioravanti/survey_tool_ruby)
-[![Dependency Status](https://gemnasium.com/badges/github.com/paulfioravanti/survey_tool_ruby.svg)](https://gemnasium.com/github.com/paulfioravanti/survey_tool_ruby)
-[![Inline docs](http://inch-ci.org/github/paulfioravanti/survey_tool_ruby.svg?branch=master)](http://inch-ci.org/github/paulfioravanti/survey_tool_ruby)
-[![git.legal](https://git.legal/projects/4738/badge.svg?key=6a6b2594f976e68abe3a "Number of libraries approved")](https://git.legal/projects/4738)
+[![Build Status][travis-badge]][travis-url]
+[![Code Climate][code-climate-badge]][code-climate-url]
+[![Coverage][code-climate-coverage-badge]][code-climate-coverage-url]
+[![Dependency Status][gemnasium-badge]][gemnasium-url]
+[![Inline docs][inch-badge]][inch-url]
+[![git.legal][git-legal-badge]][git-legal-url]
 
 # CSV Survey Tool Developer Coding Test
 
-A [Ruby](https://github.com/ruby/ruby) CLI application that parses and
-displays survey data from CSV files, and displays the results.
+A [Ruby][] CLI application that parses and displays survey data from CSV files,
+and displays the results.
 
 ## Setup
 
@@ -39,48 +39,66 @@ Other options can be seen by running the help command:
 
 ### Environment
 
-Heavy use of [Guard](https://github.com/guard/guard/) was made during
-development to ensure code quality, so I highly recommend having the following
-commands running in other terminal windows:
+Heavy use of [Guard][] was made during development to ensure code quality,
+so I highly recommend having the following commands running in other
+terminal windows:
 
     $ bin/guard -w lib test
     $ bin/console
 
 ## Tests
 
-[Minitest](https://github.com/seattlerb/minitest) was used for the tests,
-which can be run with the following command:
+[Minitest][] was used for the tests, which can be run with the
+following command:
 
     $ bin/rake test
 
 ## Coverage Report
 
-View the [Simplecov](https://github.com/colszowka/simplecov) test
-coverage report:
+View the [Simplecov][] test coverage report (after running the tests):
 
     $ open coverage/index.html
 
 ## Application Documentation
 
-Generate the [YARD](https://github.com/lsegal/yard) documentation
-(if not already done by running the tests) and open it:
+Generate the [YARD][] documentation (after running the tests) and open it:
 
     $ bin/yardoc
     $ open doc/index.html
 
 ## Other
 
-I also wrote a version of this app in
-[Elixir](https://github.com/elixir-lang/elixir), which can be found
-[here](https://github.com/paulfioravanti/survey_tool_elixir).
+I also wrote a version of this app in [Elixir][], which can be found
+[here][survey-tool-elixir].
 
 ## Social
 
-[![Contact](https://img.shields.io/badge/contact-%40paulfioravanti-blue.svg)](https://twitter.com/paulfioravanti)
+[![Contact][twitter-badge]][twitter-url]<br />
+[![Stack Overflow][stackoverflow-badge]][stackoverflow-url]
 
-<a href="http://stackoverflow.com/users/567863/paul-fioravanti">
-  <img src="http://stackoverflow.com/users/flair/567863.png" width="208" height="58" alt="profile for Paul Fioravanti at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Paul Fioravanti at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
-</a>
+[code-climate-badge]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby/badges/gpa.svg
+[code-climate-coverage-badge]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby/badges/coverage.svg
+[code-climate-coverage-url]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby
+[code-climate-url]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby
+[Elixir]: https://github.com/elixir-lang/elixir
+[gemnasium-badge]: https://gemnasium.com/badges/github.com/paulfioravanti/survey_tool_ruby.svg
+[gemnasium-url]: https://gemnasium.com/github.com/paulfioravanti/survey_tool_ruby
+[git-legal-badge]: https://git.legal/projects/4738/badge.svg?key=6a6b2594f976e68abe3a "Number of libraries approved"
+[git-legal-url]: https://git.legal/projects/4738
+[Guard]: https://github.com/guard/guard/
+[inch-badge]: http://inch-ci.org/github/paulfioravanti/survey_tool_ruby.svg
+[inch-url]: http://inch-ci.org/github/paulfioravanti/survey_tool_ruby
+[Minitest]: https://github.com/seattlerb/minitest
+[Ruby]: https://github.com/ruby/ruby
+[Simplecov]: https://github.com/colszowka/simplecov
+[stackoverflow-badge]: http://stackoverflow.com/users/flair/567863.png
+[stackoverflow-url]: http://stackoverflow.com/users/567863/paul-fioravanti
+[survey-tool-elixir]: https://github.com/paulfioravanti/survey_tool_elixir
+[travis-badge]: https://travis-ci.org/paulfioravanti/survey_tool_ruby.svg?branch=master
+[travis-url]: https://travis-ci.org/paulfioravanti/survey_tool_ruby
+[twitter-badge]: https://img.shields.io/badge/contact-%40paulfioravanti-blue.svg
+[twitter-url]: https://twitter.com/paulfioravanti
+[YARD]: https://github.com/lsegal/yard
 
 ---
 

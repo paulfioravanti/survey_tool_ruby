@@ -1,4 +1,3 @@
-# coding: utf-8
 # frozen_string_literal: true
 
 lib = File.expand_path("../lib", __FILE__)
@@ -28,7 +27,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "terminal-table", "~> 1.8"
 
-  spec.add_development_dependency "bundler", "~> 1.15"
+  spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "bundler-audit", "~> 0.5"
   spec.add_development_dependency "codeclimate-test-reporter", "~> 1.0"
   # NOTE: guard-minitest does not have Guard as a dependency,

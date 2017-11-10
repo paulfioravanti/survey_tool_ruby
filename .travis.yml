@@ -5,7 +5,7 @@ dist: trusty
 language: ruby
 cache: bundler
 rvm:
-  - 2.4.1
+  - 2.4.2
 addons:
   code_climate:
     repo_token: $CODECLIMATE_REPO_TOKEN
@@ -13,7 +13,7 @@ before_install:
   # Prevent issues like the following happening:
   # https://github.com/sickill/rainbow/issues/44
   - gem update --system
-  - gem install bundler -v 1.15.2
+  - gem install bundler -v 1.16.0
 script:
   # Ensure gem dependencies do not have known vulnerabilities
   - bin/bundle-audit check --update

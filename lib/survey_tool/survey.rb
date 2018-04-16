@@ -46,7 +46,7 @@ module SurveyTool
     # @return [BigDecimal]
     #   The participation percentage.
     def participation_percentage
-      BigDecimal.new(participant_count) / BigDecimal.new(response_count)
+      BigDecimal(participant_count) / BigDecimal(response_count)
     end
   end
 end

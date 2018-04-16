@@ -64,7 +64,7 @@ module SurveyTool
       # NOTE: I think the non-guard clause reads better here.
       # rubocop:disable Style/GuardClause
       if scores.any?
-        BigDecimal.new(scores.sum) / BigDecimal.new(scores.size)
+        BigDecimal(scores.sum) / BigDecimal(scores.size)
       end
       # rubocop:enable Style/GuardClause
     end

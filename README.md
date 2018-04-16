@@ -3,7 +3,9 @@
 [![Coverage][code-climate-coverage-badge]][code-climate-coverage-url]
 [![Dependency Status][gemnasium-badge]][gemnasium-url]
 [![Inline docs][inch-badge]][inch-url]
-[![git.legal][git-legal-badge]][git-legal-url]
+
+[comment]: # (Some services aren't working, so for now, hide their badges.)
+[git.legal]: # ([![git.legal][git-legal-badge]][git-legal-url])
 
 # CSV Survey Tool Developer Coding Test
 

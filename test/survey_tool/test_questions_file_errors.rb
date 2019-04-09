@@ -39,7 +39,7 @@ module SurveyTool
         "--questions_filepath",
         questions_filepath,
         "--responses_filepath",
-        "test/fixtures/responses/valid_survey_responses.csv"
+        "test/fixtures/valid_survey_responses.csv"
       )
       @output =
         CLI::Output.__send__(
@@ -70,7 +70,7 @@ module SurveyTool
         "--questions_filepath",
         questions_filepath,
         "--responses_filepath",
-        "test/fixtures/responses/valid_survey_responses.csv"
+        "test/fixtures/valid_survey_responses.csv"
       )
       @output =
         CLI::Output.__send__(

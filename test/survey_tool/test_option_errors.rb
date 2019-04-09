@@ -64,7 +64,7 @@ module SurveyTool
         super
         ARGV.push(
           "--responses_filepath",
-          "test/fixtures/responses/valid_survey_responses.csv"
+          "test/fixtures/valid_survey_responses.csv"
         )
         @error_output =
           CLI::Output.__send__(:error, "missing argument: questions_filepath")

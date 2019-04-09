@@ -37,7 +37,7 @@ Other options can be seen by running the help command:
 
 ### Dependencies
 
-- Ruby 2.5.1
+- Ruby 2.6.2
 
 ### Environment
 

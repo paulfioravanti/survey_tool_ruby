@@ -24,8 +24,6 @@ module SurveyTool
     #
     # @param csv_filepath [String]
     #   The questions CSV filepath.
-    # @raise [MissingHeadersError]
-    #   if the CSV file is missing headers.
     # @raise [UnknownQuestionTypeError]
     #   if the CSV file contains a type of question that is unknown to
     #   the application.
@@ -38,9 +36,6 @@ module SurveyTool
     def generate_questions(csv_filepath)
       absolute_filepath = File.expand_path(csv_filepath)
       csv = CSV.read(absolute_filepath, headers: true)
-      if csv.headers.empty?
-        raise MissingHeadersError, absolute_filepath
-      end
       generate_questions_collection(csv, absolute_filepath)
     end
 

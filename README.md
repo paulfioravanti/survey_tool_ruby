@@ -1,7 +1,6 @@
 [![Build Status][travis-badge]][travis-url]
 [![Code Climate][code-climate-badge]][code-climate-url]
 [![Coverage][code-climate-coverage-badge]][code-climate-coverage-url]
-[![Dependency Status][gemnasium-badge]][gemnasium-url]
 [![Inline docs][inch-badge]][inch-url]
 
 [comment]: # (Some services aren't working, so for now, hide their badges.)
@@ -83,8 +82,6 @@ I also wrote a version of this app in [Elixir][], which can be found
 [code-climate-coverage-url]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby
 [code-climate-url]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby
 [Elixir]: https://github.com/elixir-lang/elixir
-[gemnasium-badge]: https://gemnasium.com/badges/github.com/paulfioravanti/survey_tool_ruby.svg
-[gemnasium-url]: https://gemnasium.com/github.com/paulfioravanti/survey_tool_ruby
 [git-legal-badge]: https://git.legal/projects/4738/badge.svg?key=6a6b2594f976e68abe3a "Number of libraries approved"
 [git-legal-url]: https://git.legal/projects/4738
 [Guard]: https://github.com/guard/guard/

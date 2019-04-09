@@ -33,6 +33,10 @@ Metrics/BlockLength:
 Naming/RescuedExceptionsVariableName:
   PreferredName: error
 
+# False positive: https://github.com/rubocop-hq/rubocop/issues/5953
+Style/AccessModifierDeclarations:
+  Enabled: false
+
 Style/IfUnlessModifier:
   Enabled: false
 

@@ -43,6 +43,7 @@ module SurveyTool
         questions =
           questions_of_type(survey.questions, SurveyTool.const_get(type))
         return if questions.empty?
+
         survey_headers(table, type)
         survey_content(questions, table, type)
       end

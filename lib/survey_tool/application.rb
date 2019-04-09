@@ -17,9 +17,9 @@ module SurveyTool
     # @return [nil]
     def start
       catch(:halt) { generate_report }
-    rescue StandardError => e
+    rescue StandardError => error
       CLI::Output.messages(
-        error: "Could not generate report: #{e.message} (#{e.class})"
+        error: "Could not generate report: #{error.message} (#{error.class})"
       )
       exit(1)
     end

@@ -34,8 +34,8 @@ module SurveyTool
         check_missing_options(options)
         [options[:questions_filepath], responses_filepath(options)]
       rescue ::OptionParser::InvalidOption,
-             ::OptionParser::MissingArgument => e
-        Output.messages(error: e.to_s, info: optparse)
+             ::OptionParser::MissingArgument => error
+        Output.messages(error: error.to_s, info: optparse)
         throw(:halt)
       end
 

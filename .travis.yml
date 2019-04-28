@@ -17,9 +17,6 @@ before_install:
   # Prevent issues like the following happening:
   # https://github.com/sickill/rainbow/issues/44
   - gem update --system
-  # NOTE: bundler-audit is pegged to Bunder ~> 1.2, so this app cannot
-  # currently be upgraded to use Bundler ~> 2.0
-  - gem install bundler -v 1.17.3
 script:
   # Ensure gem dependencies do not have known vulnerabilities
   - bin/bundle-audit check --update

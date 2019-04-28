@@ -98,7 +98,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     redcarpet (3.4.0)
-    reek (5.3.2)
+    reek (5.4.0)
       codeclimate-engine-rb (~> 0.4.0)
       kwalify (~> 0.7.0)
       parser (>= 2.5.0.0, < 2.7, != 2.5.1.1)
@@ -142,7 +142,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.17)
+  bundler (~> 2.0)
   bundler-audit (~> 0.6)
   guard (~> 2.15)
   guard-minitest (~> 2.4)
@@ -162,4 +162,4 @@ DEPENDENCIES
   survey_tool!
 
 BUNDLED WITH
-   1.17.2
+   2.0.1

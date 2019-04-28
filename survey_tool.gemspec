@@ -25,9 +25,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "terminal-table", "~> 1.8"
 
-  # NOTE: bundler-audit is pegged to Bunder ~> 1.2, so this app cannot
-  # currently be upgraded to use Bundler ~> 2.0
-  spec.add_development_dependency "bundler", "~> 1.17"
+  spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "bundler-audit", "~> 0.6"
   # NOTE: guard-minitest does not have Guard as a dependency,
   # hence explicitly adding it in.

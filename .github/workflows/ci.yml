@@ -1,0 +1,36 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+concurrency:
+  group: ci-tests-${{ github.ref }}-1
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          # runs 'bundle install' and caches installed gems automatically
+          bundler-cache: true
+
+      - name: Run bundler-audit
+        run: bin/bundle-audit check --update
+
+      - name: Run tests
+        run: bin/rake test
+
+      - name: Run reek
+        run: bin/reek
+
+      - name: Run Rubocop
+        run: bin/rubocop --display-cop-names

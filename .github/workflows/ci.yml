@@ -26,11 +26,11 @@ jobs:
       - name: Run bundler-audit
         run: bin/bundle-audit check --update
 
-      - name: Run tests
-        run: bin/rake test
-
       - name: Run reek
         run: bin/reek
 
       - name: Run Rubocop
         run: bin/rubocop --display-cop-names
+
+      - name: Run tests
+        run: bin/rake test

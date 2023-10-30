@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Only run coverage when running spec suite outside of Guard
 # NOTE: This is an ENV variable so all the values are strings.
 unless ENV["NO_COVERAGE"] == "true"

@@ -9,7 +9,7 @@ module SurveyTool
     # @author Paul Fioravanti
     module OptionParser
       # Matches a file type eg ".csv" from "foo.csv"
-      FILE_TYPE_REGEX = /(?=[.].+\z)/.freeze
+      FILE_TYPE_REGEX = /(?=[.].+\z)/
       private_constant :FILE_TYPE_REGEX
       # Set of options that must be provided when running application.
       REQUIRED_OPTIONS = [:questions_filepath].freeze
@@ -72,7 +72,7 @@ module SurveyTool
         parser.on(
           "-r",
           "--responses-filepath FILEPATH",
-          "The FILEPATH of the responses file. "\
+          "The FILEPATH of the responses file. " \
           "Defaults to <questions-filepath>-responses.csv"
         ) do |filepath|
           options[:responses_filepath] = filepath

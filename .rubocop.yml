@@ -5,7 +5,8 @@ AllCops:
     # that CI still goes looking in the vendor directory and attempts to
     # scan all files in all gems, so make the exclusion explicit here.
     - "vendor/**/*"
-  TargetRubyVersion: 2.3
+  NewCops: enable
+  TargetRubyVersion: 3.2
 
 Layout/DotPosition:
   EnforcedStyle: trailing
@@ -26,10 +27,6 @@ Layout/MultilineAssignmentLayout:
   Enabled: true
   EnforcedStyle: new_line
 
-Metrics/BlockLength:
-  ExcludedMethods:
-    # NOTE: Re-enable this when Code Climate Rubocop version updates
-    - "new"
 Naming/RescuedExceptionsVariableName:
   PreferredName: error
 

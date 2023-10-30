@@ -10,7 +10,7 @@ module SurveyTool
   module ContentParser
     # The range indexes of a response row that contain
     # answers to questions.
-    ANSWERS_RANGE = (3..-1).freeze
+    ANSWERS_RANGE = (3..-1)
     private_constant :ANSWERS_RANGE
     # The index of a response row that should contain a
     # `submitted_at` timestamp.

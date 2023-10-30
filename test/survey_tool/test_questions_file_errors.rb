@@ -11,14 +11,16 @@ module SurveyTool
       questions_filepath =
         "test/fixtures/questions/non_existent_survey_questions.csv"
       ARGV.push("--questions_filepath", questions_filepath)
+      # rubocop:disable Style/StringConcatenation
       @output =
         CLI::Output.__send__(
           :error,
-          "Could not generate report: "\
-          "No such file or directory @ rb_sysopen - "\
-          "#{File.expand_path(questions_filepath)} "\
+          "Could not generate report: " \
+          "No such file or directory @ rb_sysopen - " \
+          "#{File.expand_path(questions_filepath)} " \
           "(Errno::ENOENT)"
         ) + "\n"
+      # rubocop:enable Style/StringConcatenation
     end
     # rubocop:enable Metrics/MethodLength
 
@@ -41,15 +43,17 @@ module SurveyTool
         "--responses_filepath",
         "test/fixtures/valid_survey_responses.csv"
       )
+      # rubocop:disable Style/StringConcatenation
       @output =
         CLI::Output.__send__(
           :error,
-          "Could not generate report: "\
-          "CSV file "\
-          "#{File.expand_path(questions_filepath)} "\
-          "has unknown question type 'unknown' "\
+          "Could not generate report: " \
+          "CSV file " \
+          "#{File.expand_path(questions_filepath)} " \
+          "has unknown question type 'unknown' " \
           "(SurveyTool::UnknownQuestionTypeError)"
         ) + "\n"
+      # rubocop:enable Style/StringConcatenation
     end
     # rubocop:enable Metrics/MethodLength
 

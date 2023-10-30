@@ -19,6 +19,7 @@ module SurveyTool
     # @return [UnknownQuestionTypeError]
     #   The new error instance.
     def initialize(filename, question_type)
+      super
       @message =
         "CSV file #{filename} has unknown question type '#{question_type}'"
     end

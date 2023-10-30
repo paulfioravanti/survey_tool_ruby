@@ -155,7 +155,6 @@ DEPENDENCIES
   minitest-focus (~> 1.1)
   minitest-reporters (~> 1.3)
   pry-byebug (~> 3.7)
-  rake (~> 13.1)
   redcarpet (~> 3.4)
   rubygems-tasks (~> 0.2)
   simplecov (~> 0.14)

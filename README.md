@@ -58,7 +58,7 @@ bin/console
 following command:
 
 ```console
-bin/rake test
+rake test
 ```
 
 ## Coverage Report

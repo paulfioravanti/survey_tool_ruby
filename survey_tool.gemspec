@@ -40,7 +40,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest-focus", "~> 1.1"
   spec.add_development_dependency "minitest-reporters", "~> 1.3"
   spec.add_development_dependency "pry-byebug", "~> 3.7"
-  spec.add_development_dependency "rake", "~> 13.1"
   spec.add_development_dependency "redcarpet", "~> 3.4"
   spec.add_development_dependency "rubygems-tasks", "~> 0.2"
   spec.add_development_dependency "simplecov", "~> 0.14"

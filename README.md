@@ -1,7 +1,4 @@
-[![Build Status][travis-badge]][travis-url]
-[![Code Climate][code-climate-badge]][code-climate-url]
-[![Coverage][code-climate-coverage-badge]][code-climate-coverage-url]
-[![Inline docs][inch-badge]][inch-url]
+[![Build Status][Build Status image]][Build Status url]
 
 # CSV Survey Tool Developer Coding Test
 
@@ -83,24 +80,14 @@ open doc/index.html
 I also wrote a version of this app in [Elixir][], which can be found
 [here][survey-tool-elixir].
 
-[code-climate-badge]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby/badges/gpa.svg
-[code-climate-coverage-badge]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby/badges/coverage.svg
-[code-climate-coverage-url]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby
-[code-climate-url]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby
+[Build Status image]: https://github.com/paulfioravanti/survey_tool_ruby/actions/workflows/ci.yml/badge.svg
+[Build Status url]: https://github.com/paulfioravanti/survey_tool_ruby/actions/workflows/ci.yml
 [Elixir]: https://github.com/elixir-lang/elixir
 [Guard]: https://github.com/guard/guard/
-[inch-badge]: http://inch-ci.org/github/paulfioravanti/survey_tool_ruby.svg
-[inch-url]: http://inch-ci.org/github/paulfioravanti/survey_tool_ruby
 [Minitest]: https://github.com/seattlerb/minitest
 [Ruby]: https://github.com/ruby/ruby
 [Simplecov]: https://github.com/colszowka/simplecov
-[stackoverflow-badge]: http://stackoverflow.com/users/flair/567863.png
-[stackoverflow-url]: http://stackoverflow.com/users/567863/paul-fioravanti
 [survey-tool-elixir]: https://github.com/paulfioravanti/survey_tool_elixir
-[travis-badge]: https://travis-ci.org/paulfioravanti/survey_tool_ruby.svg?branch=master
-[travis-url]: https://travis-ci.org/paulfioravanti/survey_tool_ruby
-[twitter-badge]: https://img.shields.io/badge/contact-%40paulfioravanti-blue.svg
-[twitter-url]: https://twitter.com/paulfioravanti
 [YARD]: https://github.com/lsegal/yard
 
 ---

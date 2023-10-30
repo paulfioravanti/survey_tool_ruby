@@ -39,7 +39,7 @@ bin/survey-tool -h
 
 ### Dependencies
 
-- Ruby 2.6.3
+- Ruby 3.2.2
 
 ### Environment
 

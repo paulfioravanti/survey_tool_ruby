@@ -3,9 +3,6 @@
 [![Coverage][code-climate-coverage-badge]][code-climate-coverage-url]
 [![Inline docs][inch-badge]][inch-url]
 
-[comment]: # (Some services aren't working, so for now, hide their badges.)
-[git.legal]: # ([![git.legal][git-legal-badge]][git-legal-url])
-
 # CSV Survey Tool Developer Coding Test
 
 A [Ruby][] CLI application that parses and displays survey data from CSV files,
@@ -13,15 +10,19 @@ and displays the results.
 
 ## Setup
 
-    $ git clone https://github.com/paulfioravanti/survey_tool_ruby.git
-    $ cd survey_tool_ruby
-    $ bundle install
+```console
+git clone https://github.com/paulfioravanti/survey_tool_ruby.git
+cd survey_tool_ruby
+bundle install
+```
 
 ## Usage
 
 Run the application with the following command:
 
-    $ bin/survey-tool -q questions.csv [-r responses.csv]
+```console
+bin/survey-tool -q questions.csv [-r responses.csv]
+```
 
 If the survey responses CSV file is _not_ specified, it will attempt to be
 inferred.  For example, if the questions CSV file is named
@@ -30,7 +31,9 @@ inferred.  For example, if the questions CSV file is named
 
 Other options can be seen by running the help command:
 
-    $ bin/survey-tool -h
+```console
+bin/survey-tool -h
+```
 
 ## Development
 
@@ -44,46 +47,47 @@ Heavy use of [Guard][] was made during development to ensure code quality,
 so I highly recommend having the following commands running in other
 terminal windows:
 
-    $ bin/guard -w lib test
-    $ bin/console
+```console
+bin/guard -w lib test
+bin/console
+```
 
 ## Tests
 
 [Minitest][] was used for the tests, which can be run with the
 following command:
 
-    $ bin/rake test
+```console
+bin/rake test
+```
 
 ## Coverage Report
 
 View the [Simplecov][] test coverage report (after running the tests):
 
-    $ open coverage/index.html
+```console
+open coverage/index.html
+```
 
 ## Application Documentation
 
 Generate the [YARD][] documentation (after running the tests) and open it:
 
-    $ bin/yardoc
-    $ open doc/index.html
+```console
+bin/yardoc
+open doc/index.html
+```
 
 ## Other
 
 I also wrote a version of this app in [Elixir][], which can be found
 [here][survey-tool-elixir].
 
-## Social
-
-[![Contact][twitter-badge]][twitter-url]<br />
-[![Stack Overflow][stackoverflow-badge]][stackoverflow-url]
-
 [code-climate-badge]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby/badges/gpa.svg
 [code-climate-coverage-badge]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby/badges/coverage.svg
 [code-climate-coverage-url]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby
 [code-climate-url]: https://codeclimate.com/github/paulfioravanti/survey_tool_ruby
 [Elixir]: https://github.com/elixir-lang/elixir
-[git-legal-badge]: https://git.legal/projects/4738/badge.svg?key=6a6b2594f976e68abe3a "Number of libraries approved"
-[git-legal-url]: https://git.legal/projects/4738
 [Guard]: https://github.com/guard/guard/
 [inch-badge]: http://inch-ci.org/github/paulfioravanti/survey_tool_ruby.svg
 [inch-url]: http://inch-ci.org/github/paulfioravanti/survey_tool_ruby

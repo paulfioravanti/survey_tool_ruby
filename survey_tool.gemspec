@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "terminal-table", "~> 1.8"
+  spec.add_runtime_dependency "terminal-table", "~> 3.0"
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "bundler-audit", "~> 0.6"
@@ -35,12 +35,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard-rubocop", "~> 1.2"
   spec.add_development_dependency "guard-yard", "~> 2.2"
   spec.add_development_dependency "kramdown", "~> 2.1"
-  spec.add_development_dependency "license_finder", "~> 5.7"
+  spec.add_development_dependency "license_finder", "~> 7.1"
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "minitest-focus", "~> 1.1"
   spec.add_development_dependency "minitest-reporters", "~> 1.3"
   spec.add_development_dependency "pry-byebug", "~> 3.7"
-  spec.add_development_dependency "rake", "~> 12.3"
+  spec.add_development_dependency "rake", "~> 13.1"
   spec.add_development_dependency "redcarpet", "~> 3.4"
   spec.add_development_dependency "rubygems-tasks", "~> 0.2"
   spec.add_development_dependency "simplecov", "~> 0.14"

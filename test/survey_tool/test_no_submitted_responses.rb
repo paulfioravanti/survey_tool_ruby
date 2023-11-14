@@ -19,7 +19,7 @@ module SurveyTool
 
     def test_prints_a_blank_report_to_stdout
       assert_output(output) do
-        Application.start
+        SurveyTool.start
       end
     end
   end

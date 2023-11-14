@@ -20,7 +20,7 @@ module SurveyTool
 
       def test_application_prints_error_message_with_help
         assert_output("#{error_output}\n#{help_output}") do
-          Application.start
+          SurveyTool.start
         end
       end
     end
@@ -35,7 +35,7 @@ module SurveyTool
 
       def test_application_prints_error_message_with_help
         assert_output("#{error_output}\n#{help_output}") do
-          Application.start
+          SurveyTool.start
         end
       end
     end
@@ -54,7 +54,7 @@ module SurveyTool
 
       def test_application_prints_error_message_with_help
         assert_output("#{error_output}\n#{help_output}") do
-          Application.start
+          SurveyTool.start
         end
       end
     end
@@ -72,7 +72,7 @@ module SurveyTool
 
       def test_application_prints_error_message_with_help
         assert_output("#{error_output}\n#{help_output}") do
-          Application.start
+          SurveyTool.start
         end
       end
     end

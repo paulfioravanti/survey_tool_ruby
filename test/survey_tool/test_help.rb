@@ -17,7 +17,7 @@ module SurveyTool
 
       def test_help_prints_out_the_help_message
         assert_output(output) do
-          Application.start
+          SurveyTool.start
         end
       end
     end
@@ -29,7 +29,7 @@ module SurveyTool
 
       def test_help_prints_out_the_help_message
         assert_output(output) do
-          Application.start
+          SurveyTool.start
         end
       end
     end

@@ -68,7 +68,7 @@ module SurveyTool
     # NOTE: I think making this method shorter will affect its readability
     # given the nature of the `case` statement.
     # rubocop:disable Metrics/MethodLength
-    def generate_questions_collection(csv, filepath)
+    private_class_method def generate_questions_collection(csv, filepath)
       csv.map do |question|
         type, theme, text = question.values_at("type", "theme", "text")
         case type
@@ -82,20 +82,17 @@ module SurveyTool
       end
     end
     # rubocop:enable Metrics/MethodLength
-    private_class_method :generate_questions_collection
 
-    def collate_answers(questions, response)
+    private_class_method def collate_answers(questions, response)
       questions.zip(response[ANSWERS_RANGE]).each do |question, answer|
         question.add_answer(answer)
       end
     end
-    private_class_method :collate_answers
 
-    def timestamped?(response)
+    private_class_method def timestamped?(response)
       Date.parse(response[TIMESTAMP_INDEX])
     rescue ArgumentError, TypeError
       false
     end
-    private_class_method :timestamped?
   end
 end

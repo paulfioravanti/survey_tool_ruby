@@ -34,10 +34,9 @@ module SurveyTool
           ]
         end
 
-        def formatted_percentage(percentage)
+        private_class_method def formatted_percentage(percentage)
           "#{Utilities.formatted_number(percentage * PERCENT_MULTIPLIER)}%"
         end
-        private_class_method :formatted_percentage
       end
     end
   end

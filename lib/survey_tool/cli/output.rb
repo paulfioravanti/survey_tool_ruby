@@ -31,20 +31,17 @@ module SurveyTool
         puts output.join("\n")
       end
 
-      def info(text)
+      private_class_method def info(text)
         text
       end
-      private_class_method :info
 
-      def error(text)
+      private_class_method def error(text)
         colourize(text, colour_code: RED)
       end
-      private_class_method :error
 
-      def colourize(text, colour_code:)
+      private_class_method def colourize(text, colour_code:)
         "\e[#{colour_code}m#{text}\e[0m"
       end
-      private_class_method :colourize
     end
   end
 end

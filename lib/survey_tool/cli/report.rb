@@ -28,7 +28,7 @@ module SurveyTool
         Output.messages(info: data)
       end
 
-      def participation_data(table, survey)
+      private_class_method def participation_data(table, survey)
         table.add_row(
           ParticipationPercentage.row(survey.participation_percentage)
         )
@@ -37,9 +37,8 @@ module SurveyTool
           ParticipantCount.row(survey.participant_count, survey.response_count)
         )
       end
-      private_class_method :participation_data
 
-      def survey_content_for(table, survey, type)
+      private_class_method def survey_content_for(table, survey, type)
         questions =
           questions_of_type(survey.questions, SurveyTool.const_get(type))
         return if questions.empty?
@@ -47,28 +46,24 @@ module SurveyTool
         survey_headers(table, type)
         survey_content(questions, table, type)
       end
-      private_class_method :survey_content_for
 
-      def survey_headers(table, type)
+      private_class_method def survey_headers(table, type)
         table.add_separator
         table.add_row(Report.const_get("#{type}Title").row)
         table.add_separator
         table.add_row(Report.const_get("#{type}Headers").row)
       end
-      private_class_method :survey_headers
 
-      def survey_content(questions, table, type)
+      private_class_method def survey_content(questions, table, type)
         questions.each do |question|
           table.add_separator
           table.add_row(Report.const_get("#{type}Content").row(question))
         end
       end
-      private_class_method :survey_content
 
-      def questions_of_type(questions, type)
+      private_class_method def questions_of_type(questions, type)
         questions.select { |question| question.is_a?(type) }
       end
-      private_class_method :questions_of_type
     end
   end
 end

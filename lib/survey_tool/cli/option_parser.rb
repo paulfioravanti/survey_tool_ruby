@@ -41,7 +41,7 @@ module SurveyTool
 
       # NOTE: OptionParser API forcing the long method, so ignore Rubocop
       # rubocop:disable Metrics/MethodLength
-      def option_parser(options)
+      private_class_method def option_parser(options)
         ::OptionParser.new do |parser|
           parser.banner = "Usage: ./bin/survey-tool [options]"
           parser.separator("")
@@ -55,9 +55,8 @@ module SurveyTool
         end
       end
       # rubocop:enable Metrics/MethodLength
-      private_class_method :option_parser
 
-      def questions_filepath_option(parser, options)
+      private_class_method def questions_filepath_option(parser, options)
         parser.on(
           "-q",
           "--questions-filepath FILEPATH",
@@ -66,9 +65,8 @@ module SurveyTool
           options[:questions_filepath] = filepath
         end
       end
-      private_class_method :questions_filepath_option
 
-      def responses_filepath_option(parser, options)
+      private_class_method def responses_filepath_option(parser, options)
         parser.on(
           "-r",
           "--responses-filepath FILEPATH",
@@ -78,25 +76,22 @@ module SurveyTool
           options[:responses_filepath] = filepath
         end
       end
-      private_class_method :responses_filepath_option
 
-      def help_option(parser)
+      private_class_method def help_option(parser)
         parser.on_tail("-h", "--help", "Show this message") do
           Output.messages(info: parser)
           throw(:halt)
         end
       end
-      private_class_method :help_option
 
-      def version_option(parser)
+      private_class_method def version_option(parser)
         parser.on_tail("-v", "--version", "Show version") do
           Output.messages(info: SurveyTool::VERSION)
           throw(:halt)
         end
       end
-      private_class_method :version_option
 
-      def check_missing_options(options)
+      private_class_method def check_missing_options(options)
         missing =
           REQUIRED_OPTIONS.reject do |required_option|
             options.key?(required_option)
@@ -108,21 +103,19 @@ module SurveyTool
         end
         # rubocop:enable Style/GuardClause
       end
-      private_class_method :check_missing_options
 
       # Returns either the responses filepath given from the command line, or
       # determine a default filepath based on the following formula:
       # example-data/survey-1.csv
       # becomes
       # example-data/survey-1-responses.csv
-      def responses_filepath(options)
+      private_class_method def responses_filepath(options)
         options[:responses_filepath] ||
-          options[:questions_filepath].
-            split(FILE_TYPE_REGEX).
-            insert(1, "-responses").
-            join
+        options[:questions_filepath]
+          .split(FILE_TYPE_REGEX)
+          .insert(1, "-responses")
+          .join
       end
-      private_class_method :responses_filepath
     end
   end
 end

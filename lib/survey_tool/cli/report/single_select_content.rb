@@ -31,23 +31,21 @@ module SurveyTool
           ]
         end
 
-        def answers(answers)
+        private_class_method def answers(answers)
           {
             value: formatted_answers(answers),
             alignment: :right,
             colspan: COLUMN_SPAN
           }
         end
-        private_class_method :answers
 
-        def formatted_answers(answers)
+        private_class_method def formatted_answers(answers)
           answers =
             answers.reduce([]) do |array, (key, value)|
               array << "#{key} (#{value})"
             end
           answers.sort.join(", ")
         end
-        private_class_method :formatted_answers
       end
     end
   end

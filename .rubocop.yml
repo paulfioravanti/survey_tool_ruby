@@ -9,7 +9,7 @@ AllCops:
   TargetRubyVersion: 3.2
 
 Layout/DotPosition:
-  EnforcedStyle: trailing
+  EnforcedStyle: leading
 
 Layout/FirstArrayElementLineBreak:
   Enabled: true

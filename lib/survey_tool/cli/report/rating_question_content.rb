@@ -29,13 +29,12 @@ module SurveyTool
           ]
         end
 
-        def average_score(question)
+        private_class_method def average_score(question)
           {
             value: Utilities.formatted_number(question.average_score),
             alignment: :right
           }
         end
-        private_class_method :average_score
       end
     end
   end

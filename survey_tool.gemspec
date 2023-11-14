@@ -19,7 +19,6 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject do |f|
       f.match(%r{^(test|spec|features)/})
     end
-  spec.executables = spec.files.grep(%r{^bin/}).map { |f| File.basename(f) }
   spec.metadata["rubygems_mfa_required"] = "true"
   spec.require_paths = ["lib"]
   spec.required_ruby_version = "3.2.2"

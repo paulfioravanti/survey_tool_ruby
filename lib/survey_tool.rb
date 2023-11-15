@@ -24,9 +24,9 @@ module SurveyTool
   end
 
   private_class_method def generate_report
-    questions_filepath, responses_filepath = CLI::OptionParser.fetch_filepaths
+    questions_filepath, responses_filepath = CLI.fetch_filepaths
     questions = ContentParser.generate_questions(questions_filepath)
     survey = ContentParser.generate_survey(responses_filepath, questions)
-    CLI::Report.output(survey)
+    CLI.report(survey)
   end
 end

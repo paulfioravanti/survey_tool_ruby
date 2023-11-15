@@ -41,8 +41,8 @@ module SurveyTool
 
         private_class_method def formatted_answers(answers)
           answers =
-            answers.reduce([]) do |array, (key, value)|
-              array << "#{key} (#{value})"
+            answers.reduce([]) do |acc, (key, value)|
+              acc << "#{key} (#{value})"
             end
           answers.sort.join(", ")
         end

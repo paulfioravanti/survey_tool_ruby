@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require "csv"
+require_relative "exceptions"
+require_relative "rating_question"
+require_relative "single_select"
+require_relative "survey"
 
 module SurveyTool
   # Module concerned with parsing question and response CSV files

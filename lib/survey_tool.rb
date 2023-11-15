@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-Dir["#{__dir__}/survey_tool/**/*.rb"].each { |file| require file }
+require_relative "survey_tool/cli"
+require_relative "survey_tool/content_parser"
 
 # Entry point for starting the CLI application.
 #

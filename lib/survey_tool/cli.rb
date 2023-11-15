@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require "forwardable"
+require_relative "cli/option_parser"
+require_relative "cli/output"
+require_relative "cli/report"
 
 module SurveyTool
   # Module encapsulating all the functionality of the command line

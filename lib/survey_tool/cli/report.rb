@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 require "terminal-table"
+require_relative "report/participant_count"
+require_relative "report/participation_percentage"
+require_relative "report/rating_question_content"
+require_relative "report/rating_question_headers"
+require_relative "report/rating_question_title"
+require_relative "report/single_select_content"
+require_relative "report/single_select_headers"
+require_relative "report/single_select_title"
 
 module SurveyTool
   module CLI

@@ -24,7 +24,7 @@ detectors:
       - SurveyTool::CLI::OptionParser#option_parser
       - SurveyTool::CLI::Report::RatingQuestionContent#row
       - SurveyTool::CLI::Report::SingleSelectContent#row
-      - SurveyTool::ContentParser#generate_questions
+      - SurveyTool::SurveyParser#generate_questions
       - SurveyTool::RatingQuestion#add_answer
   TooManyStatements:
     # NOTE: After attempted refactorings, I've decided that it's either not
@@ -34,7 +34,7 @@ detectors:
       - SurveyTool::Application#start
       - SurveyTool::CLI::OptionParser#fetch_filepaths
       - SurveyTool::CLI::OptionParser#option_parser
-      - SurveyTool::ContentParser#generate_survey
+      - SurveyTool::SurveyParser#generate_survey
 directories:
   "test/":
     # NOTE: Top-level documentation is done in the module/class files themselves,

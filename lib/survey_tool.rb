@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "survey_tool/cli"
-require_relative "survey_tool/content_parser"
+require_relative "survey_tool/survey_parser"
 
 # Entry point for starting the CLI application.
 #
@@ -26,8 +26,8 @@ module SurveyTool
 
   private_class_method def generate_report
     questions_filepath, responses_filepath = CLI.fetch_filepaths
-    questions = ContentParser.generate_questions(questions_filepath)
-    survey = ContentParser.generate_survey(responses_filepath, questions)
+    questions = SurveyParser.generate_questions(questions_filepath)
+    survey = SurveyParser.generate_survey(responses_filepath, questions)
     puts CLI.report(survey)
   end
 end

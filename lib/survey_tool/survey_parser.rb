@@ -7,11 +7,11 @@ require_relative "single_select_question"
 require_relative "survey"
 
 module SurveyTool
-  # Module concerned with parsing question and response CSV files
+  # Module concerned with parsing survey question and response CSV files
   # and populating question and survey objects with their information.
   #
   # @author Paul Fioravanti
-  module ContentParser
+  module SurveyParser
     # The range indexes of a response row that contain answers to questions.
     ANSWERS_RANGE = (3..-1)
     private_constant :ANSWERS_RANGE

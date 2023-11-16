@@ -51,7 +51,7 @@ module SurveyTool
           "CSV file " \
           "#{File.expand_path(questions_filepath)} " \
           "has unknown question type 'unknown' " \
-          "(SurveyTool::UnknownQuestionTypeError)"
+          "(SurveyTool::SurveyParser::UnknownQuestionTypeError)"
         ) + "\n"
       # rubocop:enable Style/StringConcatenation
     end

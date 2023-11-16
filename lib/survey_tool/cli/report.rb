@@ -43,8 +43,7 @@ module SurveyTool
       end
 
       private_class_method def survey_content_for(table, survey, type)
-        questions =
-          questions_of_type(survey.questions, SurveyTool.const_get(type))
+        questions = questions_of_type(survey.questions, Report.const_get(type))
         return if questions.empty?
 
         survey_headers(table, type)

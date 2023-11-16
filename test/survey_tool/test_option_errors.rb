@@ -15,7 +15,7 @@ module SurveyTool
         # ARGV remains []
         super
         @error_output =
-          CLI::Output.__send__(:error, "missing argument: questions_filepath")
+          CLI.output(error: "missing argument: questions_filepath")
       end
 
       def test_application_prints_error_message_with_help
@@ -30,7 +30,7 @@ module SurveyTool
         super
         ARGV.push("--questions_filepath")
         @error_output =
-          CLI::Output.__send__(:error, "missing argument: --questions_filepath")
+          CLI.output(error: "missing argument: --questions_filepath")
       end
 
       def test_application_prints_error_message_with_help
@@ -49,7 +49,7 @@ module SurveyTool
           "--responses_filepath"
         )
         @error_output =
-          CLI::Output.__send__(:error, "missing argument: --responses_filepath")
+          CLI.output(error: "missing argument: --responses_filepath")
       end
 
       def test_application_prints_error_message_with_help
@@ -67,7 +67,7 @@ module SurveyTool
           "test/fixtures/valid_survey_responses.csv"
         )
         @error_output =
-          CLI::Output.__send__(:error, "missing argument: questions_filepath")
+          CLI.output(error: "missing argument: questions_filepath")
       end
 
       def test_application_prints_error_message_with_help

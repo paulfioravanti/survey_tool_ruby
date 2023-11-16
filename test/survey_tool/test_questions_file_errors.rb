@@ -13,8 +13,8 @@ module SurveyTool
       ARGV.push("--questions_filepath", questions_filepath)
       # rubocop:disable Style/StringConcatenation
       @output =
-        CLI::Output.__send__(
-          :error,
+        CLI.output(
+          error:
           "Could not generate report: " \
           "No such file or directory @ rb_sysopen - " \
           "#{File.expand_path(questions_filepath)} " \
@@ -45,8 +45,8 @@ module SurveyTool
       )
       # rubocop:disable Style/StringConcatenation
       @output =
-        CLI::Output.__send__(
-          :error,
+        CLI.output(
+          error:
           "Could not generate report: " \
           "CSV file " \
           "#{File.expand_path(questions_filepath)} " \

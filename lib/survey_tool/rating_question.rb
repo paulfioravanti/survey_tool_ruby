@@ -48,12 +48,7 @@ module SurveyTool
     #   The score to add to the question's scores.
     def add_answer(string)
       score = string.to_i
-      # NOTE: I think the non-guard clause reads better here.
-      # rubocop:disable Style/GuardClause
-      if score.between?(MIN_SCORE, MAX_SCORE)
-        scores << score
-      end
-      # rubocop:enable Style/GuardClause
+      scores << score if score.between?(MIN_SCORE, MAX_SCORE)
     end
 
     # Calculates the average of the question's scores.
@@ -61,12 +56,7 @@ module SurveyTool
     # @return [BigDecimal]
     #   The average score.
     def average_score
-      # NOTE: I think the non-guard clause reads better here.
-      # rubocop:disable Style/GuardClause
-      if scores.any?
-        BigDecimal(scores.sum) / BigDecimal(scores.size)
-      end
-      # rubocop:enable Style/GuardClause
+      BigDecimal(scores.sum) / BigDecimal(scores.size) if scores.any?
     end
   end
 end

@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 group :red_green_refactor, halt_on_fail: true do
-  guard :minitest,
-        env: { "NO_COVERAGE" => "true" },
-        all_on_start: false do
+  guard :minitest, all_on_start: false do
     watch(%r{\Atest/(.*)/?test_(.*)\.rb\z})
     # Since there are no unit test files, there is no one-to-one relationship
     # between lib files and test files. So, when a change occurs in the code,

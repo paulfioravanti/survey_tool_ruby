@@ -3,12 +3,8 @@
 require "terminal-table"
 require_relative "report/participant_count"
 require_relative "report/participation_percentage"
-require_relative "report/rating_question_content"
-require_relative "report/rating_question_headers"
-require_relative "report/rating_question_title"
-require_relative "report/single_select_question_content"
-require_relative "report/single_select_question_headers"
-require_relative "report/single_select_question_title"
+require_relative "report/rating_question"
+require_relative "report/single_select_question"
 
 module SurveyTool
   module CLI
@@ -57,15 +53,15 @@ module SurveyTool
 
       private_class_method def survey_headers(table, type)
         table.add_separator
-        table.add_row(Report.const_get("#{type}Title").row)
+        table.add_row(Report.const_get(type).title)
         table.add_separator
-        table.add_row(Report.const_get("#{type}Headers").row)
+        table.add_row(Report.const_get(type).headers)
       end
 
       private_class_method def survey_content(questions, table, type)
         questions.each do |question|
           table.add_separator
-          table.add_row(Report.const_get("#{type}Content").row(question))
+          table.add_row(Report.const_get(type).content(question))
         end
       end
 

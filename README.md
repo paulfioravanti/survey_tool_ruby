@@ -60,7 +60,7 @@ bin/rake test
 
 ## Coverage Report
 
-View the [Simplecov][] test coverage report (after running the tests):
+View the [Simplecov][] test coverage report (after running the tests manually):
 
 ```console
 open coverage/index.html

@@ -7,7 +7,7 @@ module SurveyTool
       # for "singleselect" information from a survey.
       #
       # @author Paul Fioravanti
-      module SingleSelectHeaders
+      module SingleSelectQuestionHeaders
         # Column span length
         COLUMN_SPAN = 2
         private_constant :COLUMN_SPAN

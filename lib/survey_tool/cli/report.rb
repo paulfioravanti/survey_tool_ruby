@@ -6,9 +6,9 @@ require_relative "report/participation_percentage"
 require_relative "report/rating_question_content"
 require_relative "report/rating_question_headers"
 require_relative "report/rating_question_title"
-require_relative "report/single_select_content"
-require_relative "report/single_select_headers"
-require_relative "report/single_select_title"
+require_relative "report/single_select_question_content"
+require_relative "report/single_select_question_headers"
+require_relative "report/single_select_question_title"
 
 module SurveyTool
   module CLI
@@ -30,7 +30,7 @@ module SurveyTool
             participation_data(table, survey)
             if survey.participant_count.positive?
               survey_content_for(table, survey, "RatingQuestion")
-              survey_content_for(table, survey, "SingleSelect")
+              survey_content_for(table, survey, "SingleSelectQuestion")
             end
           end
         Output.messages(info: data)

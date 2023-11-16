@@ -3,7 +3,7 @@
 require "csv"
 require_relative "exceptions"
 require_relative "rating_question"
-require_relative "single_select"
+require_relative "single_select_question"
 require_relative "survey"
 
 module SurveyTool
@@ -12,14 +12,19 @@ module SurveyTool
   #
   # @author Paul Fioravanti
   module ContentParser
-    # The range indexes of a response row that contain
-    # answers to questions.
+    # The range indexes of a response row that contain answers to questions.
     ANSWERS_RANGE = (3..-1)
     private_constant :ANSWERS_RANGE
-    # The index of a response row that should contain a
-    # `submitted_at` timestamp.
+    # The index of a response row that should contain a `submitted_at`
+    # timestamp.
     TIMESTAMP_INDEX = 2
     private_constant :TIMESTAMP_INDEX
+    # The survey data "rating question" type
+    RATING_QUESTION = "ratingquestion"
+    private_constant :RATING_QUESTION
+    # The survey data "single select question" type
+    SINGLE_SELECT_QUESTION = "singleselect"
+    private_constant :SINGLE_SELECT_QUESTION
 
     module_function
 
@@ -76,10 +81,10 @@ module SurveyTool
       csv.map do |question|
         type, theme, text = question.values_at("type", "theme", "text")
         case type
-        when "ratingquestion"
+        when RATING_QUESTION
           RatingQuestion.new(theme, text)
-        when "singleselect"
-          SingleSelect.new(theme, text)
+        when SINGLE_SELECT_QUESTION
+          SingleSelectQuestion.new(theme, text)
         else
           raise UnknownQuestionTypeError.new(filepath, type)
         end

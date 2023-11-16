@@ -4,7 +4,7 @@ module SurveyTool
   # Class representing a `singleselect` question from a CSV file.
   #
   # @author Paul Fioravanti
-  class SingleSelect
+  class SingleSelectQuestion
     # @!attribute answers [r]
     # @return [Hash] The collection of tallied answers for the question.
     attr_reader :answers

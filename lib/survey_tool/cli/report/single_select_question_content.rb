@@ -9,7 +9,7 @@ module SurveyTool
       # of a "singleselect" question from a survey.
       #
       # @author Paul Fioravanti
-      module SingleSelectContent
+      module SingleSelectQuestionContent
         # Specified character limit for wrapping content in a table cell.
         CHARACTER_LIMIT = 50
         private_constant :CHARACTER_LIMIT

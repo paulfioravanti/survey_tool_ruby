@@ -7,7 +7,7 @@ module SurveyTool
       # for "singleselect" information from a survey.
       #
       # @author Paul Fioravanti
-      module SingleSelectTitle
+      module SingleSelectQuestionTitle
         # Column span length
         COLUMN_SPAN = 4
         private_constant :COLUMN_SPAN

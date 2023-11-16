@@ -3,7 +3,6 @@
 source "https://rubygems.org"
 gemspec
 
-# Specify your gem's dependencies in survey_tool.gemspec
 gem "bundler", "~> 2.0"
 gem "bundler-audit", "~> 0.6"
 # NOTE: guard-minitest does not have Guard as a dependency,

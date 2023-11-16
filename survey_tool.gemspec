@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Survey Data CLI Application"
   spec.description = <<~DESC
     A CLI application that parses and displays survey data from CSV files,
-    and display the results.
+    and displays the results.
   DESC
   spec.license = "MIT"
   spec.files =

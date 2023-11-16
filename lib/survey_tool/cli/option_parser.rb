@@ -92,16 +92,12 @@ module SurveyTool
       end
 
       private_class_method def check_missing_options(options)
-        missing =
+        missing_options =
           REQUIRED_OPTIONS.reject do |required_option|
             options.key?(required_option)
           end
-        # NOTE: I think the non-guard clause reads better here.
-        # rubocop:disable Style/GuardClause
-        if missing.any?
-          raise ::OptionParser::MissingArgument, missing.join(", ")
-        end
-        # rubocop:enable Style/GuardClause
+        missing_options.none? or
+          raise ::OptionParser::MissingArgument, missing_options.join(", ")
       end
 
       # Returns either the responses filepath given from the command line, or
@@ -111,10 +107,10 @@ module SurveyTool
       # example-data/survey-1-responses.csv
       private_class_method def responses_filepath(options)
         options[:responses_filepath] ||
-        options[:questions_filepath]
-          .split(FILE_TYPE_REGEX)
-          .insert(1, "-responses")
-          .join
+          options[:questions_filepath]
+            .split(FILE_TYPE_REGEX)
+            .insert(1, "-responses")
+            .join
       end
     end
   end

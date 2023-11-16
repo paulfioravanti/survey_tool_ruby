@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "optparse"
+require_relative "../version"
 
 module SurveyTool
   module CLI
@@ -79,14 +80,14 @@ module SurveyTool
 
       private_class_method def help_option(parser)
         parser.on_tail("-h", "--help", "Show this message") do
-          Output.messages(info: parser)
+          puts Output.messages(info: parser)
           throw(:halt)
         end
       end
 
       private_class_method def version_option(parser)
         parser.on_tail("-v", "--version", "Show version") do
-          Output.messages(info: SurveyTool::VERSION)
+          puts Output.messages(info: SurveyTool::VERSION)
           throw(:halt)
         end
       end

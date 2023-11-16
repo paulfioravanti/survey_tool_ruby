@@ -5,7 +5,10 @@ group :red_green_refactor, halt_on_fail: true do
         env: { "NO_COVERAGE" => "true" },
         all_on_start: false do
     watch(%r{\Atest/(.*)/?test_(.*)\.rb\z})
-    watch(%r{\Alib/(.*/)?([^/]+)\.rb\z}) { |m| "test/#{m[1]}test_#{m[2]}.rb" }
+    # Since there are no unit test files, there is no one-to-one relationship
+    # between lib files and test files. So, when a change occurs in the code,
+    # just run the entire suite.
+    watch(%r{\Alib/(.*/)?([^/]+)\.rb\z}) { "test" }
     watch(%r{\Atest/test_helper\.rb\z}) { "test" }
   end
 

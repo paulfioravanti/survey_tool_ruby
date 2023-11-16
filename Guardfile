@@ -13,16 +13,21 @@ group :red_green_refactor, halt_on_fail: true do
     watch(%r{\Atest/test_helper\.rb\z}) { "test" }
   end
 
+  # NOTE: Unavoidable warning present about binstubs. Okay to ignore
   guard :reek, all_on_start: false do
     watch(/.+\.rb$/)
     watch(".reek")
   end
 
-  guard :rubocop, all_on_start: false, cli: ["--display-cop-names"] do
+  guard :rubocop,
+        all_on_start: false,
+        cli: ["--display-cop-names"],
+        cmd: "./bin/rubocop" do
     watch(/.+\.rb$/)
     watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
   end
 
+  # NOTE: Unavoidable warning present about binstubs. Okay to ignore.
   guard :yard, cli: "--reload" do
     watch(%r{app/.+\.rb})
     watch(%r{lib/.+\.rb})

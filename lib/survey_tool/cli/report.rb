@@ -23,7 +23,7 @@ module SurveyTool
       #
       # @param survey [Survey]
       #   The survey to output.
-      # @return [nil]
+      # @return [String]
       def output(survey)
         data =
           Terminal::Table.new(title: "** SURVEY REPORT **") do |table|

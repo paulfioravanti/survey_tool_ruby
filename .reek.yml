@@ -14,24 +14,11 @@ detectors:
       - SurveyTool::CLI::OptionParser#option_parser
       # NOTE: This is due to the Terminal::Table syntax
       - SurveyTool::CLI::Report#survey_headers
-  FeatureEnvy:
-    # NOTE: Many of the exclusions here are due to reek not being able to see
-    # `module_function` methods aren't instance methods that need to refer to a
-    # `self`.
-    exclude:
-      - SurveyTool::Application#start
-      - SurveyTool::CLI::OptionParser#check_missing_options
-      - SurveyTool::CLI::OptionParser#option_parser
-      - SurveyTool::CLI::Report::RatingQuestionContent#row
-      - SurveyTool::CLI::Report::SingleSelectContent#row
-      - SurveyTool::SurveyParser#generate_questions
-      - SurveyTool::RatingQuestion#add_answer
   TooManyStatements:
     # NOTE: After attempted refactorings, I've decided that it's either not
     # really possible to make the following methods shorter, or making them
     # shorter will impact readability.
     exclude:
-      - SurveyTool::Application#start
       - SurveyTool::CLI::OptionParser#fetch_filepaths
       - SurveyTool::CLI::OptionParser#option_parser
       - SurveyTool::SurveyParser#generate_survey

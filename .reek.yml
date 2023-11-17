@@ -7,13 +7,13 @@ detectors:
       # similar data to different methods, resulting in what reek sees as a
       # data clump.  This is prevalent in the Report module as it uses data in
       # a functional way, so exclude it from this check.
-      - SurveyTool::CLI::Report
+      - SurveyTool::Report
   DuplicateMethodCall:
     exclude:
       # NOTE: This is due to the OptionParser syntax
       - SurveyTool::CLI::OptionParser#option_parser
       # NOTE: This is due to the Terminal::Table syntax
-      - SurveyTool::CLI::Report#survey_headers
+      - SurveyTool::Report#survey_headers
   TooManyStatements:
     # NOTE: After attempted refactorings, I've decided that it's either not
     # really possible to make the following methods shorter, or making them

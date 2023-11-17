@@ -3,7 +3,6 @@
 require "forwardable"
 require_relative "cli/option_parser"
 require_relative "cli/output"
-require_relative "cli/report"
 
 module SurveyTool
   # Module encapsulating all the functionality of the command line
@@ -24,11 +23,5 @@ module SurveyTool
     # @see Output.messages
     def_delegator Output, :messages, :output
     module_function :output
-
-    # @!method report
-    # @return [nil]
-    # @see Report.output
-    def_delegator Report, :output, :report
-    module_function :report
   end
 end

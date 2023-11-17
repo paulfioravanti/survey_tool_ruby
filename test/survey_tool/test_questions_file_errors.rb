@@ -6,7 +6,6 @@ module SurveyTool
   class TestNonExistentQuestionsFile < Minitest::Test
     attr_reader :output
 
-    # rubocop:disable Metrics/MethodLength
     def setup
       questions_filepath =
         "test/fixtures/questions/non_existent_survey_questions.csv"
@@ -22,7 +21,6 @@ module SurveyTool
         ) + "\n"
       # rubocop:enable Style/StringConcatenation
     end
-    # rubocop:enable Metrics/MethodLength
 
     def test_application_prints_the_error_to_stdout
       assert_output(output) do
@@ -34,7 +32,6 @@ module SurveyTool
   class TestQuestionsFileWithUnknownQuestionTypes < Minitest::Test
     attr_reader :output
 
-    # rubocop:disable Metrics/MethodLength
     def setup
       questions_filepath = "test/fixtures/questions/unknown_question_types.csv"
       ARGV.push(
@@ -55,7 +52,6 @@ module SurveyTool
         ) + "\n"
       # rubocop:enable Style/StringConcatenation
     end
-    # rubocop:enable Metrics/MethodLength
 
     def test_application_prints_the_error_to_stdout
       assert_output(output) do

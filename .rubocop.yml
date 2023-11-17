@@ -30,6 +30,9 @@ Layout/MultilineAssignmentLayout:
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 
+Metrics/MethodLength:
+  CountAsOne: ['array', 'heredoc', 'method_call']
+
 Naming/RescuedExceptionsVariableName:
   PreferredName: error
 

@@ -2,6 +2,7 @@
 
 require_relative "survey_tool/cli"
 require_relative "survey_tool/survey_parser"
+require_relative "survey_tool/report"
 
 # Entry point for starting the CLI application.
 #
@@ -28,6 +29,6 @@ module SurveyTool
     questions_filepath, responses_filepath = CLI.fetch_filepaths
     questions = SurveyParser.generate_questions(questions_filepath)
     survey = SurveyParser.generate_survey(responses_filepath, questions)
-    puts CLI.report(survey)
+    puts Report.output(survey)
   end
 end

@@ -27,9 +27,11 @@ module SurveyTool
       #   The message to print out as a standard message.
       # @return [String]
       def messages(**options)
-        options
-          .map { |type, value| __send__(type, value) }
-          .join("\n")
+        puts(
+          options
+            .map { |type, value| __send__(type, value) }
+            .join("\n")
+        )
       end
 
       private_class_method def info(text)

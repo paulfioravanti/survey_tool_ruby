@@ -19,7 +19,7 @@ module SurveyTool
   def start
     catch(:halt) { generate_report }
   rescue StandardError => error
-    puts CLI.output(
+    CLI.output(
       error: "Could not generate report: #{error.message} (#{error.class})"
     )
     exit(1)
@@ -29,6 +29,6 @@ module SurveyTool
     questions_filepath, responses_filepath = CLI.fetch_filepaths
     questions = SurveyParser.generate_questions(questions_filepath)
     survey = SurveyParser.generate_survey(responses_filepath, questions)
-    puts Report.output(survey)
+    CLI.output(info: Report.output(survey))
   end
 end

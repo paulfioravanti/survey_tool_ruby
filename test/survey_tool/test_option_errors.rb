@@ -14,12 +14,14 @@ module SurveyTool
       def setup
         # ARGV remains []
         super
-        @error_output =
-          CLI.output(error: "missing argument: questions_filepath")
+        @error_output, _err =
+          capture_io do
+            CLI.output(error: "missing argument: questions_filepath")
+          end
       end
 
       def test_application_prints_error_message_with_help
-        assert_output("#{error_output}\n#{help_output}") do
+        assert_output("#{error_output}#{help_output}") do
           SurveyTool.start
         end
       end
@@ -29,12 +31,14 @@ module SurveyTool
       def setup
         super
         ARGV.push("--questions_filepath")
-        @error_output =
-          CLI.output(error: "missing argument: --questions_filepath")
+        @error_output, _err =
+          capture_io do
+            CLI.output(error: "missing argument: --questions_filepath")
+          end
       end
 
       def test_application_prints_error_message_with_help
-        assert_output("#{error_output}\n#{help_output}") do
+        assert_output("#{error_output}#{help_output}") do
           SurveyTool.start
         end
       end
@@ -48,12 +52,14 @@ module SurveyTool
           "test/fixtures/questions/valid_survey_questions.csv",
           "--responses_filepath"
         )
-        @error_output =
-          CLI.output(error: "missing argument: --responses_filepath")
+        @error_output, _err =
+          capture_io do
+            CLI.output(error: "missing argument: --responses_filepath")
+          end
       end
 
       def test_application_prints_error_message_with_help
-        assert_output("#{error_output}\n#{help_output}") do
+        assert_output("#{error_output}#{help_output}") do
           SurveyTool.start
         end
       end
@@ -66,12 +72,14 @@ module SurveyTool
           "--responses_filepath",
           "test/fixtures/valid_survey_responses.csv"
         )
-        @error_output =
-          CLI.output(error: "missing argument: questions_filepath")
+        @error_output, _err =
+          capture_io do
+            CLI.output(error: "missing argument: questions_filepath")
+          end
       end
 
       def test_application_prints_error_message_with_help
-        assert_output("#{error_output}\n#{help_output}") do
+        assert_output("#{error_output}#{help_output}") do
           SurveyTool.start
         end
       end

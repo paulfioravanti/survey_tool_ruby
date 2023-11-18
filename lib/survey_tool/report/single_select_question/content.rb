@@ -28,7 +28,7 @@ module SurveyTool
         def row(question)
           [
             question.theme,
-            Utilities.word_wrap(question.text, CHARACTER_LIMIT),
+            Utilities.word_wrap(question.text, line_width: CHARACTER_LIMIT),
             answers(question.answers)
           ]
         end

@@ -25,7 +25,7 @@ module SurveyTool
         def row(question)
           [
             question.theme,
-            Utilities.word_wrap(question.text, CHARACTER_LIMIT),
+            Utilities.word_wrap(question.text, line_width: CHARACTER_LIMIT),
             average_score(question),
             { value: question.scores.size, alignment: :right }
           ]

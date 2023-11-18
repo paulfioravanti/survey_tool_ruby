@@ -28,23 +28,27 @@ module SurveyTool
 
       # @param text [String]
       #   The text to wrap
-      # @param max_width [Integer]
+      # @param line_width [Integer]
       #   The width at which to insert line breaks
+      # @param break_sequence [String]
+      #   The character(s) used to represent a line break
       # @return [String]
       #   The original text with any appropriate line breaks inserted.
-      def word_wrap(text, max_width)
-        # NOTE: This is ripped wholesale from
-        # ActionView::Helpers::TextHelper#word_wrap.
-        # Due to that, have Rubocop ignore it.
-        # rubocop:disable Style/MethodCalledOnDoEndBlock
-        text.split("\n").map! do |line|
-          if line.length > max_width
-            line.gsub(/(.{1,#{max_width}})(\s+|$)/, "\\1\n").strip
-          else
-            line
-          end
-        end * "\n"
-        # rubocop:enable Style/MethodCalledOnDoEndBlock
+      # NOTE: This is ripped wholesale from
+      # ActionView::Helpers::TextHelper#word_wrap.
+      # File actionview/lib/action_view/helpers/text_helper.rb, line 268
+      def word_wrap(text, line_width: 80, break_sequence: "\n")
+        # Match up to `line_width` characters, followed by one of
+        #   (1) non-newline whitespace plus an optional newline
+        #   (2) the end of the string, ignoring any trailing newlines
+        #   (3) a newline
+        #
+        # -OR-
+        #
+        # Match an empty line
+        pattern = /(.{1,#{line_width}})(?:[^\S\n]+\n?|\n*\Z|\n)|\n/
+
+        text.gsub(pattern, "\\1#{break_sequence}").chomp!(break_sequence)
       end
     end
   end

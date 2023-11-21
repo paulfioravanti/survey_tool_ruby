@@ -49,6 +49,9 @@ bin/guard -w lib test
 bin/console
 ```
 
+If you are a [Tmuxinator][] user, you can find my config for this project
+[here][tmuxinator-config].
+
 ## Tests
 
 [Minitest][] was used for the tests, which can be run with the
@@ -93,6 +96,8 @@ test, which I wrote in [Elm][]. It can be found [here][survey-tool-elm].
 [Simplecov]: https://github.com/colszowka/simplecov
 [survey-tool-elixir]: https://github.com/paulfioravanti/survey_tool_elixir
 [survey-tool-elm]: https://github.com/paulfioravanti/survey_tool_elm
+[Tmuxinator]: https://github.com/tmuxinator/tmuxinator
+[tmuxinator-config]: https://github.com/paulfioravanti/dotfiles/blob/master/tmuxinator/survey_tool_ruby.yml
 [YARD]: https://github.com/lsegal/yard
 
 ---

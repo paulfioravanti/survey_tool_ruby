@@ -21,7 +21,7 @@ detectors:
     exclude:
       - SurveyTool::CLI::OptionParser#fetch_filepaths
       - SurveyTool::CLI::OptionParser#option_parser
-      - SurveyTool::SurveyParser#generate_survey
+      - SurveyTool::SurveyParser::Generator#generate_survey
 directories:
   "test/":
     # NOTE: Top-level documentation is done in the module/class files themselves,

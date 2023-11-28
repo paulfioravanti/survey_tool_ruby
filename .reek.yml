@@ -13,7 +13,7 @@ detectors:
       # NOTE: This is due to the OptionParser syntax
       - SurveyTool::CLI::OptionParser#option_parser
       # NOTE: This is due to the Terminal::Table syntax
-      - SurveyTool::Report#survey_headers
+      - SurveyTool::Report::Table#survey_headers
   TooManyStatements:
     # NOTE: After attempted refactorings, I've decided that it's either not
     # really possible to make the following methods shorter, or making them

@@ -13,9 +13,9 @@ module SurveyTool
     #
     # @author Paul Fioravanti
     module Generator
-      # The range indexes of a response row that contain answers to questions.
-      ANSWERS_RANGE = (3..-1)
-      private_constant :ANSWERS_RANGE
+      # The range indices of a response row that contain answers to questions.
+      ANSWERS_RANGE_INDICES = (3..-1)
+      private_constant :ANSWERS_RANGE_INDICES
       # The index of a response row that should contain a `submitted_at`
       # timestamp.
       TIMESTAMP_INDEX = 2
@@ -94,7 +94,8 @@ module SurveyTool
       # rubocop:enable Metrics/MethodLength
 
       private_class_method def collate_answers(questions, response)
-        questions.zip(response[ANSWERS_RANGE]).each do |question, answer|
+        answers = response[ANSWERS_RANGE_INDICES]
+        questions.zip(answers).each do |question, answer|
           question.add_answer(answer)
         end
       end

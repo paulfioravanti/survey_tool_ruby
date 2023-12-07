@@ -5,7 +5,7 @@
 A [Ruby][] CLI application that parses and displays survey data from CSV files,
 and displays the results.
 
-[![Screenshot][screenshot url]]
+![Screenshot][screenshot url]
 
 I also wrote a version of this app in [Elixir][], which can be found
 [here][survey-tool-elixir]. There is also a sibling repo to this containing
